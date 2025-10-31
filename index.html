@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Planificador De Hábitos</title>
+    <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habitos">Gestor de Hábitos</a></li>
+                <li><a href="#seguimiento_diario">Seguimiento Diario</a></li>
+                <li><a href="#estadisticas">Estadísticas</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+    <main>
+        <section id="inicio">
+            <div class="hero"> <!-- hero que contiene su respectivo texto y botoncito que se mostrará al inicio -->
+                <div class="hero-container">
+                    <div class="hero-textos">
+                        <h1 class="hero-titulo">Todo tu bienestar en una página.</h1>
+                        <p class="hero-texto">¡Constancia, claridad, motivación y control al alcance de un sólo click!</p>
+                        <button class="hero-boton">Crea tu primer hábito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-recomendables"> <!-- sección de cards (no se si se podrá poner bootstrap yo supongo que si) para dar recomendaciones -->
+                <h2 class="habitos-recomendables"> Hábitos Saludables Recomendables</h2>
+                <tr>
+                    <td>Dormir 8hrs</td>
+                    <td>|||</td>
+                    <td>Hidratarte!</td>
+                    <td>|||</td>
+                    <td>Tener una correcta higiene dental y personal</td>
+                </tr>
+            </div>
+
+            <hr>
+
+            <div class="beneficios"> 
+                <div class="beneficios-textos">
+                    <h2>¿Por qué es bueno tener hábitos saludables?</h2>
+                    <ul>
+                        <li>
+                            <h3>Previene enfermedades y genera una buena calidad de vida</h3>
+                            <p>Esto es debido a....</p>
+                        </li>
+                        <li>
+                            <h3>Crea rutinas</h3>
+                            <p>Esto es debido a....</p>
+                        </li>
+                        <li>
+                            <h3>Satisfacción y mejor relación personal contigo mismo</h3>
+                            <p>Esto es debido a....</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="habitos"> <!-- todo lo que son los hábitos como tal -->
+            <h2>Gestor de Hábitos</h2>
+            <p>Este es tu Gestor de Hábitos, en donde podrás colocar todos tus hábitos que tienes pensado realizar en el día.<br>Tu máximo de hábitos son 10.</p>
+            
+            <ul id="lista-habitos">
+                <li>Tomar 1 litro de agua. <button>Editar</button> <button>Eliminar</button></li>
+                <li>Leer 15 minutos. <button>Editar</button> <button>Eliminar</button></li>
+                <li>Salir a trotar 25 minutos. <button>Editar</button> <button>Eliminar</button></li>
+                <li>Comer frutas. <button>Editar</button> <button>Eliminar</button></li>
+            </ul>
+
+            <button id="agregar-habito">Agregar nuevo hábito</button>
+        <hr>
+        </section>
+    </main>
+
 </body>
 </html>
