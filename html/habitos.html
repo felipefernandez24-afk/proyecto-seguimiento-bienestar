@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Hábitos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitos.html">Gestor de Hábitos</a></li>
+                <li><a href="seguimiento.html">Seguimiento Diario</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+    <main>
+        <section id="creacion-habitos">
+            <h2>Crea tu nuevo hábito</h2>
+            <div class="container">
+                <div class="vista-habito">
+                    <input type="text">
+                </div>
+                <br>
+                <form id="form-habitos">
+                    <div class="campo-nombre">
+                        <label for="nombre-habito">Hábito que deseas realizar:</label>
+                        <input type="text" id="nombre-habito" name="nombre-habito" placeholder="Ejemplo: Leer 10 páginas.">
+                    </div>
+                    <div class="campo-duracion">
+                        <label for="duracion-habito">Cuánto tiempo realizarás tu hábito:</label>
+                        <input type="text" id="duracion-habito" name="duracion-habito" placeholder="Ejemplo: 30 días.">
+                    </div>
+                    <div class="campo-dias">
+                        <label for="dias-habito">Selecciona que días te gustaría realizar dicho hábito:</label>
+                        <label><input type="checkbox" name="dias" value="L">L</label>
+                        <label><input type="checkbox" name="dias" value="M">M</label>
+                        <label><input type="checkbox" name="dias" value="MI">MI</label>
+                        <label><input type="checkbox" name="dias" value="J">J</label>
+                        <label><input type="checkbox" name="dias" value="V">V</label>
+                        <label><input type="checkbox" name="dias" value="S">S</label>
+                        <label><input type="checkbox" name="dias" value="D">D</label>
+                    </div>
+                    <div class="boton-habito">
+                        <button type="submit">Crear hábito</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
