@@ -7,14 +7,47 @@
     font-size: 16px;
 }
 
+#nombre-principal{
+    font-weight: 600;
+}
+
+/*  HEADER  */
+.navbar-color {
+    padding: 0 5%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+
+}
+.navbar-collapse {
+    padding: 10px;
+    border: none;
+}
+.header .navbar li {
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+.header .navbar li:hover {
+    border-bottom: 2px solid #333131;
+}
+.header .navbar a {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.main{
+    background-color: #ffffff;
+}
 /* SECCION DEL INICIO PARA HERO CON IMAGEN DE FONDO */
 .hero{ 
     height: 700px;
-    background-image: url("../img/hero_imagen.jpg");
+    background-image: linear-gradient(to top, #00e3ae 0%, #9be15d 100%);
+    /* background-image: url("../img/hero_imagen.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
     opacity: 95%;
 
 }
@@ -24,12 +57,11 @@
     background: rgba(0,0,0,.3);
 }
 
-
 .hero-textos{
-    width: 45%;
+    width: 55%;
     height: 100%;
     color: black;
-    padding: 200px 30px;
+    padding: 160px 80px;
     text-align: left;
 }
 
