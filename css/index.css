@@ -5,6 +5,7 @@
     padding: 0;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
+    color: #19122e;
 }
 
 #nombre-principal{
@@ -43,18 +44,15 @@
 /* SECCION DEL INICIO PARA HERO CON IMAGEN DE FONDO */
 .hero{ 
     height: 700px;
-    background-image: linear-gradient(to top, #00e3ae 0%, #9be15d 100%);
+    background-image: url('wave.svg'), linear-gradient(135deg, #00e3ae 0%, #9be15d 100%);
     /* background-image: url("../img/hero_imagen.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 95%;
-
 }
 
 .hero-container{
     height: 100%;
-    background: rgba(0,0,0,.3);
 }
 
 .hero-textos{
@@ -83,3 +81,37 @@
 }
 
 /* FIN DE LA SECCION DEL HERO INICIO*/
+
+/* INICIO HÁBITOS RECOMENDABLES */
+
+.primer-habito img, .segundo-habito img, .tercer-habito img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* SECCIÓN DE FRASES MOTIVACIONALES */
+.contenedor-frases{
+    height: auto;
+    margin: 100px 0;
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+    background-color: #00e3ae;
+}
+
+.beneficios-textos{
+    width: 55%;
+    height: 100%;
+    color: black;
+    padding: 160px 80px;
+    background-color: black;
+}
+
+.beneficios-titulo{
+    width: 75%;
+    margin: 20px 0;
+    text-align: end;
+    background-color: red;
+}
