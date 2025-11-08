@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planificador de Hábitos</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="habitos.css">
+    <title>Planificador De Hábitos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="habitos.html">Gestor de Hábitos</a></li>
-                <li><a href="seguimiento.html">Seguimiento Diario</a></li>
-                <li><a href="estadisticas.html">Estadísticas</a></li>
-            </ul>
+
+    <header class="header">
+        <nav class="navbar navbar-color navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../img/LogoTrackMe.png" alt="Logo Principal" width="50">
+                    <a class="nav-link" ><span id="nombre-principal">TrackMe</span></a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="seguimiento.html">Seguimiento de Hábitos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="habitos.html">Crear Hábitos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header> 
 
