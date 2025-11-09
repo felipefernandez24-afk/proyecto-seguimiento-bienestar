@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planificador De Hábitos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
@@ -87,25 +88,56 @@
             </div>
         </section>
 
-        <hr>
-        
         <section class="frase-motivacional text-center py-4">
             <h3 class="fw-bold">"El cambio empieza ahora, ¡tú puedes lograrlo!"</h3>
         </section>
 
+        <section class="reseñas-usuarios"> <!-- quizás hacer el apartado de las reseñas de usuarios o algo asi-->
+
+        </section>
+
         <section class="acceso-rapido-index text-center py-5">
             <h2 class="mb-4">¿Qué estás esperando? ¡Empieza ya!</h2>
-            <div class="d-flex justify-content-center gap-3">
+            <div class="d-flex justify-content-center gap-3 mb-4">
                 <a href="habitos.html"><button class="btn btn-primary btn-lg">Crea tu hábito</button></a>
                 <a href="estadisticas.html"><button class="btn btn-outline-primary btn-lg">Estadísticas</button></a>
             </div>
         </section>
     </main>
-    <footer>
 
+    <footer class="footer mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+            <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                <h3 class="fw-bold mb-2">TrackMe</h3>
+                <p class="mb-3">Todo tu bienestar en una sola página.</p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h5 class="fw-bold mb-3">"Convierte tus hábitos en algo tan natural como respirar"</h5>
+                <p class="mb-0">En esta página queremos acompañarte para que todos los hábitos que te propongas puedas verlos constantemente y tener un registro diario.</p>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+                <h3 class="fw-bold mb-3">Suscríbete</h3>
+                    <form class="d-flex justify-content-md-end justify-content-center">
+                        <input type="email" class="form-control me-2 input-suscripcion" placeholder="tucorreo@gmail.com">
+                        <button class="btn btn-light fw-semibold">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-4">
+            <p class="mb-1">© 2025 TrackMe· Todos los Derechos Reservados</p>
+        </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 </html>

@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: rgb(29, 27, 56);
+}
+
+#nombre-principal{
+    font-weight: 600;
+}
+
+/*  HEADER  */
+.navbar-color {
+    padding: 0 5%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+
+}
+.navbar-collapse {
+    padding: 10px;
+    border: none;
+}
+.header .navbar li {
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+.header .navbar li:hover {
+    border-bottom: 2px solid #333131;
+}
+.header .navbar a {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.main{
+    background-color: #ffffff;
+}
+
+
+/* footer */
+.footer {
+    position: relative;
+    background-color: #00e3ae;
+    background-image: url('../css/wave_footer.svg'); 
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+.footer h3, .footer h5 {
+    color: rgb(29, 27, 56);
+}
+
+.footer p {
+    color: rgb(29, 27, 56);
+}
+
+
+.social-link {
+    color: rgb(29, 27, 56);
+    font-size: 40px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-link:hover {
+    color: #004d40;
+    transform: scale(1.2);
+}
+
+
+.input-suscripcion {
+    max-width: 230px;
+    border-radius: 30px;
+    border: none;
+    padding-left: 15px;
+}
+
+.btn-light {
+    border-radius: 30px;
+    background-color: #fff;
+    color: rgb(29, 27, 56);
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: #00a783;
+    color: #fff;
+}
+
+.footer-hr {
+    border-color: rgba(255, 255, 255, 0.3);
+    width: 70%;
+    margin: 10px auto;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        background-size: 200% auto;
+        text-align: center;
+    }
+}
