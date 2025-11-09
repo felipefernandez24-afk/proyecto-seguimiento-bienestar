@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planificador De Hábitos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
@@ -26,6 +27,7 @@
                         <li class="nav-item"><a class="nav-link" href="seguimiento.html">Seguimiento de Hábitos</a></li>
                         <li class="nav-item"><a class="nav-link" href="habitos.html">Crear Hábitos</a></li>
                         <li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,15 +46,30 @@
                 </div>
             </div>
 
-            <div id="card-recomendables"> <!-- sección de cards (no se si se podrá poner bootstrap yo supongo que si) para dar recomendaciones -->
-                <h2 class="habitos-recomendables"> Hábitos Saludables Recomendables</h2>
-                <tr>
-                    <td>Dormir 8hrs</td>
-                    <td>|||</td>
-                    <td>Hidratarte!</td>
-                    <td>|||</td>
-                    <td>Tener una correcta higiene dental y personal</td>
-                </tr>
+            <div id="recomendables"> <!-- sección de cards (no se si se podrá poner bootstrap yo supongo que si) para dar recomendaciones -->
+                <h2 class="habitos-recomendables text-center my-2"> Hábitos Saludables Recomendables</h2>
+                <div class="container container-fluid">
+                    <div class="row align-items-center justify-content-center text-center">
+                        <div class="col primer-habito m-4 text-center">
+                            <img src="../img/hero_imagen.jpg" alt="Logo Principal" width="350px" class="img-recomendable1">
+                            <div>
+                                <p class="p-2"> Hidratación Diaria</p>
+                            </div>
+                        </div>
+                        <div class="col segundo-habito m-2 text-center">
+                            <img src="../img/hero_imagen.jpg" alt="Logo Principal" width="350px" class="img-recomendable2">
+                            <div>
+                                <p class="p-2"> 15 Minutos de Aprendizaje</p>
+                            </div>
+                        </div>
+                        <div class="col tercer-habito m-2 text-center">
+                            <img src="../img/hero_imagen.jpg" alt="Logo Principal" width="350px" class="img-recomendable3">
+                            <div>
+                                <p class="p-2"> Salir al Aire Libre </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -71,21 +88,56 @@
             </div>
         </section>
 
-        <hr>
-        
         <section class="frase-motivacional text-center py-4">
             <h3 class="fw-bold">"El cambio empieza ahora, ¡tú puedes lograrlo!"</h3>
         </section>
 
+        <section class="reseñas-usuarios"> <!-- quizás hacer el apartado de las reseñas de usuarios o algo asi-->
+
+        </section>
+
         <section class="acceso-rapido-index text-center py-5">
             <h2 class="mb-4">¿Qué estás esperando? ¡Empieza ya!</h2>
-            <div class="d-flex justify-content-center gap-3">
+            <div class="d-flex justify-content-center gap-3 mb-4">
                 <a href="habitos.html"><button class="btn btn-primary btn-lg">Crea tu hábito</button></a>
                 <a href="estadisticas.html"><button class="btn btn-outline-primary btn-lg">Estadísticas</button></a>
             </div>
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <footer class="footer mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+            <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                <h3 class="fw-bold mb-2">TrackMe</h3>
+                <p class="mb-3">Todo tu bienestar en una sola página.</p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h5 class="fw-bold mb-3">"Convierte tus hábitos en algo tan natural como respirar"</h5>
+                <p class="mb-0">En esta página queremos acompañarte para que todos los hábitos que te propongas puedas verlos constantemente y tener un registro diario.</p>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+                <h3 class="fw-bold mb-3">Suscríbete</h3>
+                    <form class="d-flex justify-content-md-end justify-content-center">
+                        <input type="email" class="form-control me-2 input-suscripcion" placeholder="tucorreo@gmail.com">
+                        <button class="btn btn-light fw-semibold">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-4">
+            <p class="mb-1">© 2025 TrackMe· Todos los Derechos Reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

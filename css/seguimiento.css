@@ -1,0 +1,36 @@
+.hero{ 
+    height: 700px;
+    background-image: url('wave.svg'), linear-gradient(135deg, #00e3ae 0%, #9be15d 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.hero-container{
+    height: 100%;
+}
+
+.hero-textos{
+    width: 55%;
+    height: 100%;
+    color: rgb(29, 27, 56);
+    padding: 160px 80px;
+    text-align: left;
+}
+
+.hero-titulo{
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.hero-texto{
+    width: 75%;
+    margin: 20px 0;
+}
+/* FIN DE LA SECCION DEL HERO INICIO*/
+
+.separador-texto{
+    background-color: #00e3ae;
+    margin: 50px 0;
+}

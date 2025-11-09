@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planificador De Hábitos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/seguimiento.css">
 </head>
 <body>
 
@@ -26,23 +27,30 @@
                         <li class="nav-item"><a class="nav-link" href="seguimiento.html">Seguimiento de Hábitos</a></li>
                         <li class="nav-item"><a class="nav-link" href="habitos.html">Crear Hábitos</a></li>
                         <li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadísticas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header> 
 
-    <section class="text-center p-3 bg-secondary text-white">
-        <h1>SEGUIMIENTO DE HABITOS</h1>
-        <h2>En esta parte...</h2>
-    </section>
+    <main class="main">
+        <div class="hero"> <!-- hero que contiene su respectivo texto y botoncito que se mostrará al inicio -->
+            <div class="hero-container">
+                <div class="hero-textos">
+                    <h1 class="hero-titulo">Seguimiento de Hábitos</h1>
+                    <p class="hero-texto">Lleva un registro de tu progreso diario y observa cómo tus pequeñas acciones se convierten en grandes resultados. Marca tus hábitos, revisa tu constancia y motívate a seguir avanzando día a día.</p>
+                </div>
+            </div>
+        </div>
 
-    <hr>
-    <main class="container py-4">
         <section class="text-center mb-4">
+            <h2 class="p-4 mb-3">Seguimiento General</h2>
+            <hr>
             <div class="d-flex justify-content-center align-items-center gap-3">
-                <label for="fecha">Fecha</label>
+                <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha">
+                <label for="fecha">Progreso:</label>
                 <div class="progress w-25">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                         role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -51,6 +59,7 @@
                 </div>
             </div>
         </section>
+
         <section id="lista-habitos" class="border p-3 mb-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <span>1.</span>
@@ -66,20 +75,24 @@
             </div>
         </section>
 
-        <section class="text-end mb-4">
+        <section class="text-end p-3 mb-4">
             <a href="estadisticas.html" class="btn btn-outline-dark">Estadísticas</a>
         </section>
 
-        <hr>
+        <section class="separador-texto text-center py-4">
+            <h3>¿Deseas leer un libro, pero no sabes cuál?</h3>
+            <p>A continuación te dejamos un apartado para que puedas buscar libros y los agregues a tu sección.</p>
+        </section>
+
         <section id="seccion-libros" class="text-center">
-            <h2 class="mb-3">AGREGA UN LIBRO A TU SECCIÓN</h2>
+            <h2 class="mb-3">Apartado de Libros</h2>
             <div class="d-inline-block mb-3">
                 <select class="form-select mb-2">
-                    <option selected>Selecciona categoría</option>
+                    <option selected>Seleccionar Categoría</option>
                     <option>Nutrición</option>
-                    <option>Ejercico</option>
-                    <option>Salud mental</option>
-                    <option>Estilo de vida</option>
+                    <option>Ejercicio</option>
+                    <option>Salud Mental</option>
+                    <option>Estilo de Vida</option>
                 </select>
             </div>
             <div class="d-flex justify-content-center gap-3 mt-4">
@@ -88,6 +101,41 @@
                 <div class="bg-secondary" style="width:100px; height:150px;"></div>
             </div>
         </section>
+
     </main>
+
+    <footer class="footer mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+            <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                <h3 class="fw-bold mb-2">TrackMe</h3>
+                <p class="mb-3">Todo tu bienestar en una sola página.</p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h5 class="fw-bold mb-3">"Convierte tus hábitos en algo tan natural como respirar"</h5>
+                <p class="mb-0">En esta página queremos acompañarte para que todos los hábitos que te propongas puedas verlos constantemente y tener un registro diario.</p>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+                <h3 class="fw-bold mb-3">Suscríbete</h3>
+                    <form class="d-flex justify-content-md-end justify-content-center">
+                        <input type="email" class="form-control me-2 input-suscripcion" placeholder="tucorreo@gmail.com">
+                        <button class="btn btn-light fw-semibold">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-4">
+            <p class="mb-1">© 2025 TrackMe· Todos los Derechos Reservados</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

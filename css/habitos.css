@@ -1,0 +1,37 @@
+.hero{ 
+    height: 700px;
+    background-image: url('wave.svg'), linear-gradient(135deg, #00e3ae 0%, #9be15d 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-container{
+    height: 100%;
+}
+
+.hero-textos{
+    width: 55%;
+    height: 100%;
+    color: rgb(29, 27, 56);
+    padding: 160px 80px;
+    text-align: left;
+}
+
+.hero-titulo{
+    font-size: 45px;
+}
+
+.hero-texto{
+    width: 75%;
+    margin: 20px 0;
+}
+
+.hero-boton{
+    background-color: #fff;
+    padding: 10px 15px;
+    color: rgb(29, 27, 56);
+    border-radius: 35px;
+    cursor: pointer;
+}
+/* FIN DE LA SECCION DEL HERO INICIO*/
