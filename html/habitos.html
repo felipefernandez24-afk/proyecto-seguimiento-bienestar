@@ -44,54 +44,94 @@
             </div>
         </div>
 
-        <section id="creacion-habitos">
-            <h2>Crea tu nuevo hábito</h2>
-            <div class="container">
-                <div class="vista-habito">
-                    <input type="text">
+        <section id="creacion-habitos" class="container my-5"> <!-- seccion destinada a la creacion de habitos -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center mb-4">Crea tu nuevo hábito</h2>
+                    <div class="vista-habito-preview border rounded p-3 text-center mb-4 shadow-sm">
+                        <h3 class="fw-light text-muted" id="vista-previa-titulo">(Tu hábito aparecerá aquí)</h3> <!-- esta parte cambiaría según se rellena los inputs -->
+                    </div>
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="form-habitos">
+                                <!-- solicitudes para crear habito -->
+                                <div class="mb-3">
+                                    <label for="nombre-habito" class="form-label fs-5">Hábito que deseas realizar:</label>
+                                    <input type="text" class="form-control" id="nombre-habito" name="nombre-habito" placeholder="Ejemplo: Leer un libro">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="duracion-diaria" class="form-label fs-5">Duración diaria:</label>
+                                    <input type="text" class="form-control" id="duracion-diaria" name="duracion-diaria" placeholder="Ejemplo: 15 minutos">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="meta-habito" class="form-label fs-5">Meta total del hábito:</label>
+                                    <input type="text" class="form-control" id="meta-habito" name="meta-habito" placeholder="Ejemplo: 30 días">
+                                </div>
+
+                                <div class="mb-4">
+                                    <!-- que feo esto xd -->
+                                    <label class="form-label fs-5">Días a realizar:</label>
+                                    <div class="d-flex justify-content-between gap-1">
+                                        <input type="checkbox" class="btn-check" id="dia-l" name="dias" value="L" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-l">L</label>
+                                        <input type="checkbox" class="btn-check" id="dia-m" name="dias" value="MA" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-m">MA</label>
+                                        <input type="checkbox" class="btn-check" id="dia-mi" name="dias" value="MI" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-mi">MI</label>
+                                        <input type="checkbox" class="btn-check" id="dia-j" name="dias" value="J" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-j">J</label>
+                                        <input type="checkbox" class="btn-check" id="dia-v" name="dias" value="V" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-v">V</label>
+                                        <input type="checkbox" class="btn-check" id="dia-s" name="dias" value="S" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-s">S</label>
+                                        <input type="checkbox" class="btn-check" id="dia-d" name="dias" value="D" autocomplete="off">
+                                        <label class="btn btn-outline-primary flex-grow-1" for="dia-d">D</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg fw-bold">CREAR</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <br>
-                <form id="form-habitos">
-                    <div class="campo-nombre">
-                        <label for="nombre-habito">Hábito que deseas realizar:</label>
-                        <input type="text" id="nombre-habito" name="nombre-habito" placeholder="Ejemplo: Leer 10 páginas.">
-                    </div>
-                    <div class="campo-duracion">
-                        <label for="duracion-habito">Cuánto tiempo realizarás tu hábito:</label>
-                        <input type="text" id="duracion-habito" name="duracion-habito" placeholder="Ejemplo: 30 días.">
-                    </div>
-                    <div class="campo-dias">
-                        <label for="dias-habito">Selecciona que días te gustaría realizar dicho hábito:</label>
-                        <label><input type="checkbox" name="dias" value="L">L</label>
-                        <label><input type="checkbox" name="dias" value="M">M</label>
-                        <label><input type="checkbox" name="dias" value="MI">MI</label>
-                        <label><input type="checkbox" name="dias" value="J">J</label>
-                        <label><input type="checkbox" name="dias" value="V">V</label>
-                        <label><input type="checkbox" name="dias" value="S">S</label>
-                        <label><input type="checkbox" name="dias" value="D">D</label>
-                    </div>
-                    <div class="boton-habito">
-                        <button type="submit">Crear hábito</button>
-                    </div>
-                </form>
             </div>
         </section>
-        <section>
-            <h2>Tus hábitos creados</h2>
-            <div class="container"></div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                <span>1.</span>
-                <input type="text" class="form-control w-50" placeholder="Nombre del hábito" value="Beber agua">
-                <span>Duración: 10 min</span>
-                <button class="btn btn-outline-primary">Modificar</button>
-                <button class="btn btn-outline-danger">Eliminar</button>
-            </div>
-            <div class="d-flex justify-content-between align-items-center">
-                <span>2.</span>
-                <input type="text" class="form-control w-50" placeholder="Nombre del hábito" value="Leer un libro">
-                <span>Duración: 20 min</span>
-                <button class="btn btn-outline-primary">Modificar</button>
-                <button class="btn btn-outline-danger">Eliminar</button>
+        <section id="lista-habitos-creados" class="container my-5">
+            <h2 class="text-center mb-4">Tus Hábitos Creados</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <!-- ejemplos de cómo se veria cuando ya estén creados habitos
+                            se usará localstorage y js para formar bloques como estos -->
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                                <span class="fs-5 me-2">1.</span>
+                                <input type="text" class="form-control" style="width: 40%;" value="Beber agua">
+                                <span class="text-muted mx-3">Duración: 10 min</span>
+                                <div class="btn-group mt-2 mt-md-0">
+                                    <button class="btn btn-outline-primary">Modificar</button>
+                                    <button class="btn btn-outline-danger">Eliminar</button>
+                                </div>
+                            </div>
+
+                            <hr> <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                <span class="fs-5 me-2">2.</span>
+                                <input type="text" class="form-control" style="width: 40%;" value="Leer un libro">
+                                <span class="text-muted mx-3">Duración: 20 min</span>
+                                <div class="btn-group mt-2 mt-md-0">
+                                    <button class="btn btn-outline-primary">Modificar</button>
+                                    <button class="btn btn-outline-danger">Eliminar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
