@@ -21,11 +21,13 @@
 
 .hero-titulo{
     font-size: 45px;
+    font-weight: 700;
 }
 
 .hero-texto{
     width: 75%;
     margin: 20px 0;
+    font-weight: 600;
 }
 
 .hero-boton{
@@ -65,75 +67,8 @@
 .beneficios-titulo{
     width: 75%;
     margin: 20px 0;
-    text-align: center;
+    text-align: left;
 }
 
-/* footer */
-.footer {
-    position: relative;
-    background-color: #00e3ae;
-    background-image: url('../css/wave_footer.svg'); 
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    color: rgb(255, 255, 255);
-    overflow: hidden;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-
-.footer h3, .footer h5 {
-    color: rgb(29, 27, 56);
-}
-
-.footer p {
-    color: rgb(29, 27, 56);
-}
-
-
-.social-link {
-    color: rgb(29, 27, 56);
-    font-size: 40px;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.social-link:hover {
-    color: #004d40;
-    transform: scale(1.2);
-}
-
-
-.input-suscripcion {
-    max-width: 230px;
-    border-radius: 30px;
-    border: none;
-    padding-left: 15px;
-}
-
-.btn-light {
-    border-radius: 30px;
-    background-color: #fff;
-    color: rgb(29, 27, 56);
-    transition: all 0.3s ease;
-}
-
-.btn-light:hover {
-    background-color: #00a783;
-    color: #fff;
-}
-
-.footer-hr {
-    border-color: rgba(255, 255, 255, 0.3);
-    width: 70%;
-    margin: 10px auto;
-}
-
-@media (max-width: 768px) {
-    .footer {
-        background-size: 200% auto;
-        text-align: center;
-    }
-}
 
 
