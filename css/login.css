@@ -4,7 +4,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
 }
 
 .hero-container{
@@ -29,13 +28,27 @@
     margin: 20px 0;
     font-weight: 600;
 }
+
+.hero-boton{
+    background-color: #fff;
+    padding: 10px 15px;
+    color: rgb(29, 27, 56);
+    border-radius: 35px;
+    cursor: pointer;
+}
 /* FIN DE LA SECCION DEL HERO INICIO*/
 
-.texto-seguimiento{
-    margin: 12px 0 80px 0;
+.bienvenida-login{
+    margin: 15px 0 50px 0;
 }
 
-.separador-texto{
+
+.button-login button{
     background-color: #00e3ae;
-    margin: 50px 0;
+    border-color: #004d40;  
+    width: 100%;
+    padding: 10px; 
+    border-radius: 30px; 
+    font-size: 16px;
+    font-weight: 500;
 }

@@ -20,11 +20,13 @@
 
 .hero-titulo{
     font-size: 45px;
+    font-weight: 700;
 }
 
 .hero-texto{
     width: 75%;
     margin: 20px 0;
+    font-weight: 600;
 }
 
 .hero-boton{

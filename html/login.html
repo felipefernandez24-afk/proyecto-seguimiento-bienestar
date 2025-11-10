@@ -6,7 +6,7 @@
     <title>Planificador de Hábito</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/habitos.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <header class="header">
@@ -42,6 +42,56 @@
                 </div>
             </div>
         </div>
+
+        <section class="bienvenida-login"> <!-- todo lo que es el texto antes del login-->
+            <div class="text-center justify-content-center">
+                <h2>Que bueno es verte de nuevo...</h2>
+                <p>Porque queremos verte cumplir tus propósitos, vuelve a iniciar sesión y si no lo haz hecho. 
+                    <br>¡No esperes más, hazlo ya!
+                </p>
+            </div>
+        </section>
+
+        <section class="login py-5">
+            <div class="container my-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center"> <!-- imagen izquierda -->
+                        <img src="../img/login.jpg" alt="Hábitos saludables" class="img-fluid shadow rounded">
+                    </div>
+                    <div class="col-md-6"> <!-- texto derecha -->
+                        <h2 class="login-titulo mb-3s">Log in</h2>
+                        <p>¿Todavía no eres miembro? <a href="#">Regístrate aquí</a></p> <!-- revisar aqui por si no tiene cuenta-->
+                        <form class="mt-4">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="checkDefault">
+                                <label class="form-check-label" for="checkDefault">Mantener la sesión iniciada</label>
+                            </div>
+                            <div class="button-login mt-4">
+                                <button class="button-login" type="submit">Iniciar Sesión</button>
+                            </div>
+                        </form>
+                        <p class="text-end my-3">¿Todavía no eres miembro?. <a href="#">Regístrate aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reseñas-usuarios"> <!-- quizás hacer el apartado de las reseñas de usuarios o algo asi-->
+            <div class="text-center justify-content-center">
+                <h2>Algunos testimonios de nuestros usuarios</h2>
+                <p>Estas son algunas de las experiencias de quienes ya forman parte de nuestra comunidad y avanzan cada día hacia sus metas.</p>
+            </div>
+            <div class="container"> <!-- contenedor para los futuros usuarios de mentira xDDD-->
+
+            </div>
+        </section>
+
     </main>
     
     <footer class="footer mt-5">
