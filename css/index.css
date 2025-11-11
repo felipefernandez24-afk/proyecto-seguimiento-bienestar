@@ -48,13 +48,23 @@
 }
 
 /* SECCIÓN DE FRASES MOTIVACIONALES */
+.beneficios-titulo h2{
+    color: #1C1C2A;
+}
 .frase-motivacional{
     height: auto;
     margin: 100px 0;
     width: 100%;
     text-align: center;
     padding: 50px;
-    background-color: #00e3ae;
+    background-color: #00C67F;
+}
+.frase-motivacional h3{
+    color: #fff;
+}
+
+.acceso-rapido-index h2{
+    color: #1C1C2A;
 }
 
 .beneficios-textos{
@@ -70,5 +80,14 @@
     text-align: left;
 }
 
+
+.btn-primary{
+    background-color: #1E88E5;
+}
+
+.btn-primary:hover{
+    background-color: #1565C0;
+    border-color: #1E88E5;
+}
 
 

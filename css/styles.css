@@ -5,7 +5,7 @@
     padding: 0;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
-    color: rgb(29, 27, 56);
+    color: #1C1C2A;
 }
 
 #nombre-principal{
@@ -47,11 +47,11 @@
 .footer {
     position: relative;
     background-color: #00e3ae;
-    background-image: url('../css/wave_footer.svg'); 
+    background-image: url('../css/wave_footer.svg'), linear-gradient(135deg, #00E3AE, #00C67F); 
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    color: rgb(255, 255, 255);
+    color: #FFFFFF;
     overflow: hidden;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -59,22 +59,22 @@
 
 
 .footer h3, .footer h5 {
-    color: rgb(29, 27, 56);
+    color: #FFFFFF;
 }
 
 .footer p {
-    color: rgb(29, 27, 56);
+    color: #E8F5E9;
 }
 
 
 .social-link {
-    color: rgb(29, 27, 56);
+    color: #FFFFFF;
     font-size: 40px;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .social-link:hover {
-    color: #004d40;
+    color: #1565C0;
     transform: scale(1.2);
 }
 
@@ -88,7 +88,7 @@
 
 .btn-light {
     border-radius: 30px;
-    background-color: #fff;
+    background-color: #1E88E5;
     color: rgb(29, 27, 56);
     transition: all 0.3s ease;
 }
@@ -99,7 +99,7 @@
 }
 
 .footer-hr {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: #1E88E5;
     width: 70%;
     margin: 10px auto;
 }

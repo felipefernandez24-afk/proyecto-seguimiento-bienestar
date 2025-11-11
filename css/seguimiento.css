@@ -36,6 +36,26 @@
 }
 
 .separador-texto{
-    background-color: #00e3ae;
+    background-color: #00C67F;
     margin: 50px 0;
+}
+
+.separador-texto p{
+    color: #E8F5E9;
+}
+
+.separador-texto h3{
+    color: #E8F5E9;
+}
+
+.boton-estadisticas{
+    background-color: #1E88E5;
+    border-color: #E0E0E0;
+    color: #fff;
+}
+
+.boton-estadisticas:hover{
+    background-color: #1565C0;
+    border-color: #E0E0E0;
+
 }

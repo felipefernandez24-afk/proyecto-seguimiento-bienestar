@@ -35,8 +35,7 @@
     </header> 
 
     <main class="main">
-        <div class="hero"> <!-- hero que contiene su respectivo texto y botoncito que se mostrará al inicio -->
-            <div class="hero-container">
+        <div class="hero"> <div class="hero-container">
                 <div class="hero-textos">
                     <h1 class="hero-titulo">Estadísticas Generales</h1>
                     <p class="hero-texto">Explora tus estadísticas y descubre tu evolución. Visualiza tu constancia y los hábitos que más contribuyen a tu bienestar.</p>
@@ -44,8 +43,108 @@
             </div>
         </div>
 
-    </main>
+        <section class="container my-5">
+            
+            <h2 class="text-center mb-4">Tu Progreso de un Vistazo</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Hábitos Completados</h5>
+                            <p class="fs-1 fw-bold text-success">128</p> <!-- aquí iría el dato insertado mediante js -->
+                            <p class="card-text">Total histórico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Mejor Racha</h5>
+                            <p class="fs-1 fw-bold text-primary">14 días</p> <!-- aquí iría el dato insertado mediante js -->
+                            <p class="card-text">Con totalidad de hábitos cumplidos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Constancia General</h5>
+                            <p class="fs-1 fw-bold text-warning">82%</p> <!-- aquí iría el dato insertado mediante js -->
+                            <p class="card-text">Últimos 30 días</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row mt-4">
+                <div class="col-lg-7 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header">
+                            Constancia Diaria (Últimos 7 días)
+                        </div>
+                        <div class="card-body">
+                            <canvas id="graficoConstancia"></canvas> <!-- todo esto se modifica mediante js (DOM y algo mas quizas) -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header">
+                            Hábitos por Categoría
+                        </div>
+                        <div class="card-body">
+                            <canvas id="graficoCategorias" style="max-height: 300px; margin: auto;"></canvas> <!-- todo esto se modifica mediante js (DOM y algo mas quizas) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            Rachas Actuales por Hábito
+                        </div>
+                        <div class="card-body">
+                            <canvas id="graficoRachas" style="max-height: 350px;"></canvas> <!-- todo esto se modifica mediante js (DOM y algo mas quizas) -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            Progreso Individual de Hábitos (Este mes)
+                        </div>
+                        <div class="card-body">
+                            <!-- ejemplos -->
+                            <h5 class="fw-normal">Beber agua</h5>
+                            <div class="progress mb-3" style="height: 25px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                            </div>
+                            <h5 class="fw-normal">Leer un libro</h5>
+                            <div class="progress mb-3" style="height: 25px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                            </div>
+                            <h5 class="fw-normal">Salir a trotar 25 minutos</h5>
+                            <div class="progress mb-3" style="height: 25px;">
+                                <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                            </div>
+
+                            <!-- todo este fragmento se injectaria en base a datos sacados de chart.js y DOM
+                            <h5 class="fw-normal"> " " </h5>
+                            <div class="progress mb-3" style="height: 25px;">
+                                <div class="progress-bar bg-warning text-dark" role="progressbar" style="width:" " aria-valuenow=" " aria-valuemin="0" aria-valuemax="100"> " " </div>
+                            </div>
+                            que bacan es comentar con shift alt a  -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
     <footer class="footer mt-5">
         <div class="container py-5">
             <div class="row align-items-center">

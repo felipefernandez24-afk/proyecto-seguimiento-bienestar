@@ -44,11 +44,15 @@
 
 
 .button-login button{
-    background-color: #00e3ae;
+    background-color: #00E3AE;
     border-color: #004d40;  
     width: 100%;
     padding: 10px; 
     border-radius: 30px; 
     font-size: 16px;
     font-weight: 500;
+}
+
+.reseñas-usuarios{
+    margin: 80px 0;
 }
