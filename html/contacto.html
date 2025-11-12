@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Hábitos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/contacto.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-color navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../img/LogoTrackMe.png" alt="Logo Principal" width="50">
+                    <a class="nav-link" ><span id="nombre-principal">TrackMe</span></a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section id="inicio">
+            <div class="hero"> <!-- hero que contiene su respectivo texto y botoncito que se mostrará al inicio -->
+                <div class="hero-container">
+                    <div class="hero-textos">
+                        <h1 class="hero-titulo">Contáctanos</h1>
+                        <p class="hero-texto">Queremos acompañarte en tu camino hacia mejores hábitos. Si tienes alguna sugerencia, problema o simplemente quieres contarnos tu experiencia con TrackMe, no dudes en escribirnos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container textos mb-4">
+            <h2 class="align-items-center text-center">Contáctanos</h2>
+            <p class="align-items-center text-center">Nosotros valoramos tu opinión y queremos estar junto a ti para que puedas seguir mejorando día a día, es por ello que si quieres contactarnos comentar algún problema o dejar testimonio de nuestra página, lo agradecemos y con gusto lo aceptamos.
+            </p>
+        </div>
+        
+        <section>
+            <div class="contacto-seccion">
+                <div class="container">
+                    <div class="row gx-5 align-items-start">
+                    
+                        <div class="col-lg-4 col-md-5">
+                            <h3>¿Tienes Alguna Duda?</h3>
+                            <p>
+                                No estás solo en tu camino hacia una vida más organizada y saludable. 
+                                Nuestro equipo está aquí disponible en todo momento para ayudarte con cualquier pregunta, 
+                                sugerencia o problema que tengas, estamos felices de escucharte.
+                                <br><br> Escríbenos y te responderemos lo antes posible.
+                            </p>
+                            <br>
+                            <hr>
+                            Correo de Contacto: TrackMe@gmail.com
+                            Número de Teléfono: +56 9 1234 5678
+                        </div>
+
+                        <div class="col-lg-8 col-md-7">
+                            <div class="container-formulario p-4 shadow-sm">
+                                <form class="row g-3 needs-validation" novalidate> 
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="*Nombre" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="*Apellido" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="email" class="form-control" placeholder="*Email" required>
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="+56 9">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="tel" class="form-control" placeholder="9999 9999">
+                                    </div>
+                                        <div class="col-md-4">
+                                            <select class="form-select" required>
+                                                <option value="">Motivo</option>
+                                                <option value="problemas">Tuve problemas con la página</option>
+                                                <option value="opinion">Deseo enviar mi opinión de la página</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                        <div class="invalid-feedback">Por favor selecciona un motivo.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control" rows="3" placeholder="Mensaje..."></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="notificaciones">
+                                            <label class="form-check-label" for="notificaciones">
+                                                Deseo Recibir Notificaciones de TrackMe
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terminos" required>
+                                            <label class="form-check-label" for="terminos">
+                                                Acepto los Términos y Condiciones de TrackMe
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+            <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                <h3 class="fw-bold mb-2">TrackMe</h3>
+                <p class="mb-3">Todo tu bienestar en una sola página.</p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h5 class="fw-bold mb-3">"Convierte tus hábitos en algo tan natural como respirar"</h5>
+                <p class="mb-0">En esta página queremos acompañarte para que todos los hábitos que te propongas puedas verlos constantemente y tener un registro diario.</p>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+                <h3 class="fw-bold mb-3">Suscríbete</h3>
+                    <form class="d-flex justify-content-md-end justify-content-center">
+                        <input type="email" class="form-control me-2 input-suscripcion" placeholder="tucorreo@gmail.com">
+                        <button class="btn btn-light fw-semibold">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-success p-1 footer-bottom text-center mt-4 fw-bold">
+            <p class="mb-1">© 2025 TrackMe· Todos los Derechos Reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/contacto.js"></script>
+</body>
+</html>
