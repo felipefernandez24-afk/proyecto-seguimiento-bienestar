@@ -15,33 +15,24 @@
             const contrasena = form.querySelector('#formGroupExampleInput2').value.trim(); // Obtener los datos del formulario
             const usuariosExistentes=JSON.parse(localStorage.getItem("usuariosTrackMe")||"{}") // usuariosTrackMe es como la bd
 
-            if (email && contrasena) {// Validar que los campos no estén vacíos
-
-                // integracion de datos 
-                if(!usuariosExistentes[email])
-                {
-                    usuariosExistentes[email] =
-                    {
-                        email:email,
-                        contrasena:contrasena,
-                        habitos:{},
-                        registros:{},
-                        estadisticas:{
-                            mesActual:{},
-                            historialMensual:{}
-                        }
-                    }
+                // Comprobar si el usuario existe
+            const usuario = usuariosExistentes[email];
+            if (usuario) {
+                // Comprobar si la contraseña es correcta
+                if (contrasena === usuario.contrasena) {
+                    // Si la contraseña es correcta
+                    localStorage.setItem("usuarioActual", email); // Mantener sesión en localStorage
+                    window.location.href = "index.html"; // Redirigir a la página de inicio
+                } else {
+                    // Contraseña incorrecta
+                    alert("Contraseña incorrecta.", "danger");
                 }
-
-                localStorage.setItem("usuariosTrackMe", JSON.stringify(usuariosExistentes)); // Guarda todos los usuarios
-                localStorage.setItem("usuarioActual", email); // Guarda quién inició sesión
-
-                window.location.href = "index.html";
             } else {
-                alert("Por favor, completa todos los campos."); // Por si acaso
-            }
-    }
-    form.classList.add('was-validated')
-    }, false)
-})
+                // Usuario no encontrado
+                alert("El usuario no existe", "danger");
+        }
+        }
+        form.classList.add('was-validated')
+        }, false)
+    })
 })()
