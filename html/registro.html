@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planificador De Hábitos</title>
+    <title>Planificador de Hábito</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/registro.css">
 </head>
 <body>
     <header class="header">
@@ -31,75 +31,63 @@
                 </div>
             </div>
         </nav>
-    </header> 
+    </header>
 
     <main class="main">
-        <section id="inicio">
-            <div class="hero"> <!-- hero que contiene su respectivo texto y botoncito que se mostrará al inicio -->
-                <div class="hero-container">
-                    <div class="hero-textos">
-                        <h1 class="hero-titulo">Todo tu bienestar en una página.</h1>
-                        <p class="hero-texto">¡Constancia, claridad, motivación y control al alcance de un sólo click!</p>
-                        <button class="hero-boton"><a class="nav-link" href="habitos.html">Crea tu primer hábito</a></button>
-                    </div>
+        <div class="hero"> <!-- hero que contiene su respectivo texto y botoncito que se mostrará al inicio -->
+            <div class="hero-container">
+                <div class="hero-textos">
+                    <h1 class="hero-titulo">Registrarse a TrackMe</h1>
+                    <p class="hero-texto">¡Hola! Somos TrackMe, una página planificadora de habitos, registrate para empezar el cambio en tu vida</p>
                 </div>
             </div>
+        </div>
 
-            <div id="recomendables"> <!-- habitos recomendados -->
-                <h2 class="habitos-recomendables text-center my-2"> Hábitos Saludables Recomendables</h2>
-                <div class="container container-fluid">
-                    <div class="row align-items-center justify-content-center text-center">
-                        <div class="col primer-habito m-4 text-center">
-                            <img src="../img/hidratacion.jpg" alt="Logo Principal" width="350px" class="img-recomendable1">
-                            <div>
-                                <p class="p-2"> Hidratación Diaria</p>
-                            </div>
-                        </div>
-                        <div class="col segundo-habito m-2 text-center">
-                            <img src="../img/aprendizaje.jpg" alt="Logo Principal" width="350px" class="img-recomendable2">
-                            <div>
-                                <p class="p-2"> 15 Minutos de Aprendizaje</p>
-                            </div>
-                        </div>
-                        <div class="col tercer-habito m-2 text-center">
-                            <img src="../img/airelibre.jpeg" alt="Logo Principal" width="350px" class="img-recomendable3">
-                            <div>
-                                <p class="p-2"> Salir al Aire Libre </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <section class="bienvenida-registro"> <!-- todo lo que es el texto antes del registro-->
+            <div class="text-center justify-content-center">
+                <h2>Sección de registro</h2>
+                <p>Porque queremos verte cumplir tus propósitos. Registrate ahora para tener acceso a nuestra herramienta planificadora de hábitos. ¡El cambio lo haces tú!
+                </p>
             </div>
         </section>
-
-        <section class="beneficios py-5">
-            <div class="container rounded shadow p-2">
+        <section class="registro py-5">
+            <div class="container my-4">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center"> <!-- imagen izquierda -->
-                        <img src="../img/habitos_saludables.jpg" alt="Hábitos saludables" class="img-fluid rounded shadow">
+                        <img src="../img/registroimagen.png" alt="Hábitos saludables" class="img-fluid shadow rounded">
                     </div>
                     <div class="col-md-6"> <!-- texto derecha -->
-                        <h2 class="beneficios-titulo mb-3">¿Por qué es bueno tener hábitos saludables?</h2>
-                        <p class="lead">Tener hábitos saludables es fundamental puesto que:</p>
-                        <p>Mantiene un equilibrio físico y mental que nos permite vivir con energía, concentración y bienestar. Adoptar rutinas como una alimentación equilibrada, la práctica regular de ejercicio, un buen descanso y la gestión del estrés fortalece nuestro cuerpo, mejorando el estado de ánimo y previene numerosas enfermedades. Además los hábitos fomentan la disciplina, constancia y perseverancia.</p>
+                        <h2 class="registro-titulo mb-3 my-4">Registro</h2>
+                        <p>¿Ya tienes una cuenta? <a href="registro.html">Ve a inicio de sesión</a></p> <!-- revisar aqui por si SI tiene cuenta-->
+                        <form class="formulario-contacto needs-validation mt-4" novalidate id="registro-form">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="inputNombre" placeholder="Nombre de usuario" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="inputPass" placeholder="Contraseña (mín. 6 caracteres)" minlength="6" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="inputPass2" placeholder="Repite la contraseña" minlength="6" required>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="" id="keepSigned">
+                                <label class="form-check-label" for="keepSigned">Mantener la sesión iniciada</label>
+                            </div>
+                            <div class="button-registro mt-4">
+                                <button class="button-registro btn btn-primary w-100" type="submit">Registrarse</button>
+                            </div>
+                            <p class="text-end my-3">¿Ya tienes una cuenta? <a href="login.html">Ve a inicio de sesión</a></p>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="frase-motivacional text-center py-4">
-            <h3 class="fw-bold">"El cambio empieza ahora, ¡tú puedes lograrlo!"</h3>
-        </section>
-
-        <section class="acceso-rapido-index text-center py-5">
-            <h2 class="mb-4">¿Qué estás esperando? ¡Empieza ya!</h2>
-            <div class="d-flex justify-content-center gap-3 mb-4">
-                <a href="habitos.html"><button class="btn btn-primary boton-index btn-lg">Crea tu hábito</button></a>
-                <a href="estadisticas.html"><button class="btn btn-outline-primary btn-lg">Estadísticas</button></a>
-            </div>
-        </section>
     </main>
-
+    
     <footer class="footer mt-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -134,6 +122,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/registro.js"></script>
 </body>
 </html>

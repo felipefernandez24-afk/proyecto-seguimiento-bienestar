@@ -12,10 +12,30 @@
     else{
         event.preventDefault();
             const email = form.querySelector('#formGroupExampleInput').value.trim(); // Obtener los datos del formulario
-            const password = form.querySelector('#formGroupExampleInput2').value.trim(); // Obtener los datos del formulario
+            const contrasena = form.querySelector('#formGroupExampleInput2').value.trim(); // Obtener los datos del formulario
+            const usuariosExistentes = JSON.parse(localStorage.getItem("usuarios")||"{}")
 
-            if (email && password) {// Validar que los campos no estén vacíos
-                localStorage.setItem("usuario", JSON.stringify({ email: email, password: password })); // Guardar el email y la contraseña en localStorage
+            if (email && contrasena) {// Validar que los campos no estén vacíos
+
+                // integracion de datos 
+                if(!usuariosExistentes[email])
+                {
+                    usuariosExistentes[email] =
+                    {
+                        email:email,
+                        contrasena:contrasena,
+                        habitos:{},
+                        registros:{},
+                        estadisticas:{
+                            mesActual:{},
+                            historialMensual:{}
+                        }
+                    }
+                }
+
+                localStorage.setItem("usuarios", JSON.stringify(usuariosExistentes)); // Guarda todos los usuarios
+                localStorage.setItem("usuarioActual", email); // Guarda quién inició sesión
+
                 window.location.href = "index.html"; // O redirigir a cualquier otra página
             } else {
                 alert("Por favor, completa todos los campos."); // Por si acaso
