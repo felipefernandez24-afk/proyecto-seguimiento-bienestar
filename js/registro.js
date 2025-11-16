@@ -38,7 +38,9 @@
                 {
                     nombre:nombre,
                     email:email,
-                    contrasena:pass
+                    contrasena:pass,
+                    habitos:{},
+                    estadisticas:{}
                 }
 
                 let bd=JSON.parse(localStorage.getItem("usuariosTrackMe"))||{}

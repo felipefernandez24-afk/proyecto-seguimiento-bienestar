@@ -14,8 +14,9 @@ estructura de los usuarios;
 cómo se veria (flujo/árbol)
 
     usuario
-    │
-    ├── mesActual
+    ├── nombre
+    ├── email
+    ├── contrasena
     │
     ├── habitos[]
     │     └── habito
@@ -23,6 +24,7 @@ cómo se veria (flujo/árbol)
     │         ├── nombre
     │         ├── duracion
     │         ├── descripcion
+    │         ├── dias
     │         ├── fechaCreacion
     │         └── fechaTermino
     │     
