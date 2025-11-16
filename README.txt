@@ -1,5 +1,5 @@
 por el momento esto lo usaremos para contextualizar el proyecto pa crearlo
-ahi veremos si al final hacemos una introduccion
+ahi veremos si al final hacemos una introduccion o matamos este archivo 
 (eso podria servir como una chuleta pa ganar puntos (mentira))
 estructura de la pagina;
 

@@ -35,7 +35,12 @@
                     contrasena:pass
                 }
 
-                localStorage.setItem("usuario", JSON.stringify(usuario))
+                let bd=JSON.parse(localStorage.getItem("usuariosTrackMe"))||{}
+                bd[email]=usuario
+                localStorage.setItem("usuariosTrackMe", JSON.stringify(bd))
+
+                localStorage.setItem("usuarioActivo", email)
+
                 window.location.href="index.html"
             }
 

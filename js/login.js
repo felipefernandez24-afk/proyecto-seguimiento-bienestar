@@ -13,7 +13,7 @@
         event.preventDefault();
             const email = form.querySelector('#formGroupExampleInput').value.trim(); // Obtener los datos del formulario
             const contrasena = form.querySelector('#formGroupExampleInput2').value.trim(); // Obtener los datos del formulario
-            const usuariosExistentes = JSON.parse(localStorage.getItem("usuarios")||"{}")
+            const usuariosExistentes=JSON.parse(localStorage.getItem("usuariosTrackMe")||"{}") // usuariosTrackMe es como la bd
 
             if (email && contrasena) {// Validar que los campos no estén vacíos
 
@@ -33,10 +33,10 @@
                     }
                 }
 
-                localStorage.setItem("usuarios", JSON.stringify(usuariosExistentes)); // Guarda todos los usuarios
+                localStorage.setItem("usuariosTrackMe", JSON.stringify(usuariosExistentes)); // Guarda todos los usuarios
                 localStorage.setItem("usuarioActual", email); // Guarda quién inició sesión
 
-                window.location.href = "index.html"; // O redirigir a cualquier otra página
+                window.location.href = "index.html";
             } else {
                 alert("Por favor, completa todos los campos."); // Por si acaso
             }
