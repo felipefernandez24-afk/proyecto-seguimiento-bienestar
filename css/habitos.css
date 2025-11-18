@@ -45,6 +45,13 @@
 }
 
 @media (max-width: 768px) {
+    .hero-container{
+        width: 100%;
+    }
+    .hero-textos{
+        width: 100%;
+        height: 80%;
+    }
     .primera_card, .segunda_card, .tercera_card, .cuarta_card{  
         width: 30%;
         justify-content: center;

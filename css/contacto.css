@@ -38,3 +38,16 @@
     cursor: pointer;
 }
 /* FIN DE LA SECCION DEL HERO INICIO*/
+
+@media (max-width: 768px) {
+    .hero-container{
+        width: 100%;
+    }
+    .hero-textos{
+        width: 100%;
+        height: 80%;
+    }
+    .columna-alguna-duda{
+        text-align: center;
+    }
+}
