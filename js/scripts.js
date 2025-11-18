@@ -7,18 +7,20 @@ document.addEventListener('DOMContentLoaded', () =>
     const usuario=usuarios[emailActual];
     if(!usuario)return;
 
-    const main=document.querySelector('main');
-    if(!main)return;
+    const menu=document.getElementById('menu');
+    if(!menu)return;
 
-    main.innerHTML=
+    menu.innerHTML=
     `
-        <div style="padding:40px;">
-            <h1>Usuario Actual</h1>
-            <p><strong>Nombre:</strong> ${usuario.nombre||"(sin nombre)"}</p>
-            <p><strong>Email:</strong> ${usuario.email}</p>
-            <p><strong>Contraseña:</strong> ${usuario.contrasena}</p>
-            <hr>
-            <p>Este bloque reemplaza completamente el contenido del main solo como prueba.</p>
-        </div>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="habitos.html">Creación de hábitos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="seguimiento.html">Seguimiento</a></li>
+                        <li class="nav-item"><a class="nav-link" href="estadisticas.html">Estadisticas</a></li>
+                        <!--  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
+                    </ul>
     `;
 });

@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
         new Chart(ctxCategorias, {
             type: 'doughnut',
             data: {
-                labels: ['Salud Física', 'Salud Mental', 'Aprendizaje', 'Productividad'],
+                labels: ['Beber agua', 'Correr', 'Leer', 'Ejercitar'],
                 datasets: [{
                     label: 'Hábitos',
                     data: [5, 3, 2, 2], // Datos de ejemplo
