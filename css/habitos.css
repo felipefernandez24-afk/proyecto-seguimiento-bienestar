@@ -37,3 +37,17 @@
     cursor: pointer;
 }
 /* FIN DE LA SECCION DEL HERO INICIO*/
+
+/* INICIO CARDS RECOMENDABLES */
+
+.primera_card{
+    background-position: center;
+}
+
+@media (max-width: 768px) {
+    .primera_card, .segunda_card, .tercera_card, .cuarta_card{  
+        width: 30%;
+        justify-content: center;
+        text-align: center;
+    }
+}
