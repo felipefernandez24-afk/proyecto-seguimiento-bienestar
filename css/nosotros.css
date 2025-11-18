@@ -1,0 +1,217 @@
+.hero{ 
+    height: 700px;
+    background-image: url('wave.svg'), linear-gradient(135deg, #00e3ae 0%, #9be15d 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-container{
+    height: 100%;
+}
+
+.hero-textos{
+    width: 55%;
+    height: 100%;
+    color: rgb(29, 27, 56);
+    padding: 160px 80px;
+    text-align: left;
+}
+
+.hero-titulo{
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.hero-texto{
+    width: 75%;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.hero-boton{
+    background-color: #fff;
+    padding: 10px 15px;
+    color: rgb(29, 27, 56);
+    border-radius: 35px;
+    cursor: pointer;
+}
+/* FIN DE LA SECCION DEL HERO INICIO*/
+
+.bienvenida-login{
+    margin: 15px 0 50px 0;
+}
+
+
+.button-login button{
+    background-color: #00E3AE;
+    border-color: #004d40;  
+    width: 100%;
+    padding: 10px; 
+    border-radius: 30px; 
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.reseñas-usuarios{
+    margin: 80px 0;
+}
+
+.imagen-testimonio{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 300px;
+    text-align: center;
+}
+
+.img-valores {
+    width: 60%;
+    aspect-ratio: 1/1; /*cuadrado perfecto*/
+    border-radius: 50%;
+    object-fit: cover;
+    min-width: 80px;
+    max-width: 160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* css de time line https://freefrontend.com/javascript-timelines/ */
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #4cd75a;
+}
+
+.timeline ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  background:rgb(65, 183, 77);
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 4px 13px 30px 1px rgba(87, 255, 132, 0.2);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline ul li div time {
+  position: absolute;
+  background: #19f524;
+  width: 80px;
+  height: 30px;
+  top: -15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+}
+.timeline ul li div div {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline ul li div div p {
+  text-align: center;
+}
+.timeline ul li div .discovery {
+  margin-right: 10px;
+}
+.timeline ul li:nth-of-type(odd) > div {
+  left: 45px;
+}
+.timeline ul li:nth-of-type(even) > div {
+  left: -439px;
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-of-type(odd) div {
+  transform: translate3d(100px, -10px, 0) rotate(10deg);
+}
+.timeline ul li:nth-of-type(even) div {
+  transform: translate3d(-100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+    flex-direction: column;
+  }
+  .timeline ul li div div {
+    width: 80%;
+    margin: 10px;
+  }
+  .timeline ul li:nth-of-type(even) > div {
+    left: -289px;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    background: #8bfff4;
+  }
+
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+  .timeline ul li:nth-of-type(even) > div {
+    left: 45px;
+  }
+}
+/* fin css time line  */
+
+/* parte final de nosotros */
+
+.contenedor-loquenosdiferencia{
+  margin-top: 750px;
+  margin-bottom: 750px;
+}
