@@ -12,16 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Inyecta la frase aleatoria en el contenedor
       fraseContainer.innerHTML = `
-        <section class="frase-motivacional text-center py-4">
           <h3 class="fw-bold">"${fraseAleatoria.text}"</h3>
-        </section>
       `;
     } catch (error) {
       console.error("Error al cargar la API:", error);
       fraseContainer.innerHTML = `
-        <div class="alert alert-danger" role="alert">
           <strong>Error:</strong> No se pudo cargar la frase.
-        </div>
       `;
     }
   }

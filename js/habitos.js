@@ -1,3 +1,26 @@
+const usuarioActual = localStorage.getItem("usuarioActual");
+
+if (!usuarioActual) {
+    window.location.href = "login.html";
+}
+
+function getHabitosUsuario() {
+    let bd = JSON.parse(localStorage.getItem("usuariosTrackMe")) || {};
+    let usuario = bd[usuarioActual];
+    if (!usuario || !usuario.habitos || !Array.isArray(usuario.habitos)) {
+        return [];
+    }
+    return usuario.habitos;
+}
+
+function setHabitosUsuario(lista) {
+    let bd = JSON.parse(localStorage.getItem("usuariosTrackMe")) || {};
+    if (bd[usuarioActual]) {
+        bd[usuarioActual].habitos = lista;
+        localStorage.setItem("usuariosTrackMe", JSON.stringify(bd));
+    }
+}
+
 const form = document.getElementById("form-habitos");
 
 form.addEventListener("submit", function(event) {
@@ -17,26 +40,32 @@ form.addEventListener("submit", function(event) {
     document.getElementById("vista-previa-titulo").textContent = habito.nombre; //modificar la parte de la vista previa al crear el habito
 })
 
-document.addEventListener("DOMContentLoaded", function(event) { //para que se muestren los datos ya mostrados en el localstorage
-    let habitoArray = JSON.parse(localStorage.getItem("habitos"))
-    habitoArray.forEach(
-        function(elemento){
-            insertarHabito(elemento)
-        }
-    )
+document.addEventListener("DOMContentLoaded", function(event) { 
+    renderizarListaCompleta(); // para evitar cosas como que los numeros no cambien al eliminar habitos, etc
+    document.getElementById("btn-guardar-edicion").addEventListener("click", guardarEdicionDesdeModal); //para guardar desde el modal
 })
-
-//le psasmos form data y obtiene los datos que tenga
 function conversion(habitoFormData){ 
+    let id = crypto.randomUUID();
     let nombre = habitoFormData.get("nombre-habito");
     let duracion = habitoFormData.get("duracion-diaria");
     let meta = habitoFormData.get("meta-habito");
-    let dias = habitoFormData.getAll("dias"); //devuelve un getAll por ser varias opciones ["L" , "MA" "J" ]
+    let dias = habitoFormData.getAll("dias"); 
+
+    const today = new Date();
+    const fechaCreacion = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+
+    const dateAfter30Days = new Date();
+    dateAfter30Days.setDate(today.getDate() + Number(meta)); 
+    const fechaTermino = `${String(dateAfter30Days.getDate()).padStart(2, '0')}/${String(dateAfter30Days.getMonth() + 1).padStart(2, '0')}/${dateAfter30Days.getFullYear()}`;
+
     return {
+        "id" : id,
         "nombre" : nombre,
         "duracion" : duracion,
         "meta" : meta,
-        "dias" : dias } //me devuelve un objeto que tenga sus respectivas clave valor
+        "dias" : dias,
+        "fechaCreacion" : fechaCreacion,
+        "fechaTermino" : fechaTermino} 
 }
 
 function validarHabito(habito){ //funcion para validar que cumpla con las cosas
@@ -64,7 +93,7 @@ function validarHabito(habito){ //funcion para validar que cumpla con las cosas
 }
 
 function guardarLocalStorage(habito){
-    let habitoArray = JSON.parse(localStorage.getItem("habitos")) || []; //aggara del localstorage la info que tengo y las guarda en una variable
+    let habitoArray = getHabitosUsuario(); //aggara del localstorage la info que tengo y las guarda en una variable
     
     if (habitoArray.some(h => h.nombre.toLowerCase() === habito.nombre.toLowerCase())) {
         alert("Ese hábito ya existe.");
@@ -77,10 +106,7 @@ function guardarLocalStorage(habito){
     }
     else{
         habitoArray.push(habito);
-        //convierto mi array a un json
-        let habitoArrayJSON = JSON.stringify(habitoArray);
-        //haciendo setitem para guardarr en el local storage formato json
-        localStorage.setItem("habitos", habitoArrayJSON);
+        setHabitosUsuario(habitoArray);
     }
 
     return true;
@@ -89,10 +115,10 @@ function guardarLocalStorage(habito){
 function insertarHabito(habito) {
     const contenedor = document.querySelector("#lista-habitos-creados .card-body");
 
-    let habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-    let numero = habitosGuardados.length; //para los indices
+    let habitosGuardados = getHabitosUsuario();
+    const numero = habitosGuardados.findIndex(h => h.id === habito.id) + 1;
 
-    const div = document.createElement("div"); //el div que se va agregar al igual que se tenia antes en el html
+    const div = document.createElement("div"); 
     div.classList.add("d-flex", "flex-wrap", "justify-content-between", "align-items-center", "mb-3");
 
     div.innerHTML = `
@@ -100,7 +126,7 @@ function insertarHabito(habito) {
         <input type="text" class="form-control" style="width: 40%;" value="${habito.nombre}" disabled>
         <span class="text-muted mx-3">Duración: ${habito.duracion}</span>
         <div class="btn-group mt-2 mt-md-0">
-            <button class="btn btn-outline-primary btn-modificar">Modificar</button>
+            <button class="btn btn-outline-primary btn-modificar" data-bs-toggle="modal" data-bs-target="#modalEditarHabito">Modificar</button>
             <button class="btn btn-outline-danger btn-eliminar">Eliminar</button>
         </div>
     `;
@@ -108,4 +134,97 @@ function insertarHabito(habito) {
 
     const hr = document.createElement("hr");
     contenedor.appendChild(hr);
+
+    // botón Eliminar
+    const btnEliminar = div.querySelector(".btn-eliminar");
+    btnEliminar.addEventListener("click", function() {
+        if(confirm(`¿Estás seguro de eliminar "${habito.nombre}"?`)) {
+            eliminarHabito(habito.id);
+        }
+    });
+
+    // Botón Modificar
+    const btnModificar = div.querySelector(".btn-modificar");
+    btnModificar.addEventListener("click", function() {
+        cargarDatosAlModal(habito);
+    });
+}
+
+
+function cargarDatosAlModal(habito) {
+    document.getElementById("edit-id").value = habito.id;
+    document.getElementById("edit-nombre").value = habito.nombre;
+    document.getElementById("edit-duracion").value = habito.duracion;
+    document.getElementById("edit-meta").value = habito.meta;
+
+    document.querySelectorAll(".edit-dia").forEach(check => check.checked = false);
+
+    habito.dias.forEach(dia => {
+        let checkbox = document.querySelector(`.edit-dia[value="${dia}"]`);
+        if(checkbox) {
+            checkbox.checked = true;
+        }
+    });
+}
+
+function guardarEdicionDesdeModal() {
+    const id = document.getElementById("edit-id").value;
+    const nombre = document.getElementById("edit-nombre").value;
+    const duracion = document.getElementById("edit-duracion").value;
+    const meta = document.getElementById("edit-meta").value;
+    
+    const diasSeleccionados = [];
+    document.querySelectorAll(".edit-dia:checked").forEach(check => {
+        diasSeleccionados.push(check.value);
+    });
+
+    if (!nombre.trim() || !duracion.trim() || !meta.trim() || diasSeleccionados.length === 0) { //validacion por si el chistoso edita dejando todo vacio
+        alert("Por favor completa todos los campos y selecciona al menos un día.");
+        return;
+    }
+
+    const nuevosDatos = {
+        nombre: nombre,
+        duracion: duracion,
+        meta: meta,
+        dias: diasSeleccionados
+    };
+
+    actualizarHabito(id, nuevosDatos);
+
+    // Cerrar modal
+    const modalElement = document.getElementById('modalEditarHabito');
+    const modalInstance = bootstrap.Modal.getInstance(modalElement); 
+    modalInstance.hide();
+}
+
+function actualizarHabito(id, nuevosDatos) {
+    let habitos = getHabitosUsuario();
+    const indice = habitos.findIndex(h => h.id === id);
+
+    if (indice !== -1) { //validacion validar todo siempre aaa
+        habitos[indice].nombre = nuevosDatos.nombre;
+        habitos[indice].duracion = nuevosDatos.duracion;
+        habitos[indice].meta = nuevosDatos.meta;
+        habitos[indice].dias = nuevosDatos.dias;
+
+        setHabitosUsuario(habitos);
+        renderizarListaCompleta();
+    }
+}
+
+function eliminarHabito(id) {
+    let habitos = getHabitosUsuario();
+    let habitosActualizados = habitos.filter(h => h.id !== id);
+    setHabitosUsuario(habitosActualizados);
+    renderizarListaCompleta();
+}
+
+function renderizarListaCompleta() { //para que los numeros no fallen al borrar
+    const contenedor = document.querySelector("#lista-habitos-creados .card-body");
+    contenedor.innerHTML = ""; 
+    let habitosArray = getHabitosUsuario();
+    habitosArray.forEach(function(elemento) {
+        insertarHabito(elemento);
+    });
 }

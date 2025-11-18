@@ -5,6 +5,7 @@ ahi veremos si al final hacemos una introduccion de esas que hacen siempre en ca
 estructura de la pagina;
 
     localStorage{}
+    ├─ usuarioActivo
     └─ usuariosTrackMe{} (esta es una variable en el localStorage que simula como una base de datos jasjdasjd)
         ├── usuario
         ├── usuario
