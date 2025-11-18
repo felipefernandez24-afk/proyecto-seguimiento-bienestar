@@ -227,7 +227,7 @@
                     </div>
                     <div class="card shadow-sm">
                         <div class="card-body p-4 p-md-5">
-                            <form id="form-habitos">
+                            <form id="form-habitos"> <!-- formualrio importante para lo que es la creacion del habito -->
                                 <!-- solicitudes para crear habito -->
                                 <div class="mb-3">
                                     <label for="nombre-habito" class="form-label fs-5">Hábito que deseas realizar:</label>
@@ -266,7 +266,7 @@
                                 </div>
 
                                 <div class="d-grid gap-2 mt-4">
-                                    <button type="submit" class="btn btn-primary btn-lg fw-bold">CREAR</button>
+                                    <button type="submit" id="crear-habito" class="btn btn-primary btn-lg fw-bold">CREAR</button>
                                 </div>
                             </form>
                         </div>
@@ -274,41 +274,23 @@
                 </div>
             </div>
         </section>
+
         <section id="lista-habitos-creados" class="container my-5">
             <h2 class="text-center mb-4">Tus Hábitos Creados</h2>
             
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="card shadow-sm">
-                        <div class="card-body p-4">
-                            <!-- ejemplos de cómo se veria cuando ya estén creados habitos
-                            se usará localstorage y js para formar bloques como estos -->
-                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-                                <span class="fs-5 me-2">1.</span>
-                                <input type="text" class="form-control" style="width: 40%;" value="Beber agua">
-                                <span class="text-muted mx-3">Duración: 10 min</span>
-                                <div class="btn-group mt-2 mt-md-0">
-                                    <button class="btn btn-outline-primary">Modificar</button>
-                                    <button class="btn btn-outline-danger">Eliminar</button>
-                                </div>
-                            </div>
-
-                            <hr> <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                <span class="fs-5 me-2">2.</span>
-                                <input type="text" class="form-control" style="width: 40%;" value="Leer un libro">
-                                <span class="text-muted mx-3">Duración: 20 min</span>
-                                <div class="btn-group mt-2 mt-md-0">
-                                    <button class="btn btn-outline-primary">Modificar</button>
-                                    <button class="btn btn-outline-danger">Eliminar</button>
-                                </div>
-                            </div>
+                        <div class="card-body p-4"> <!-- debajo van a ir los habitos con js-->
 
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
+
     <footer class="footer mt-5">
         <div class="container py-5">
             <div class="row align-items-center">
