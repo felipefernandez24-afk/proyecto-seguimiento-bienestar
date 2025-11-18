@@ -39,7 +39,7 @@
                     nombre:nombre,
                     email:email,
                     contrasena:pass,
-                    habitos:{},
+                    habitos:[],
                     estadisticas:{}
                 }
 
@@ -47,7 +47,7 @@
                 bd[email]=usuario
                 localStorage.setItem("usuariosTrackMe", JSON.stringify(bd))
 
-                localStorage.setItem("usuarioActivo", email)
+                localStorage.setItem("usuarioActual", email)
                 alert("Te has registrado correctamente, redirigiendo a página de inicio de sesión.");
                 window.location.href="login.html"
             }

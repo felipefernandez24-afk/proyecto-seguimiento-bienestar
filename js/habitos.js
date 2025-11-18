@@ -1,3 +1,26 @@
+const usuarioActual = localStorage.getItem("usuarioActual");
+
+if (!usuarioActual) {
+    window.location.href = "login.html";
+}
+
+function getHabitosUsuario() {
+    let bd = JSON.parse(localStorage.getItem("usuariosTrackMe")) || {};
+    let usuario = bd[usuarioActual];
+    if (!usuario || !usuario.habitos || !Array.isArray(usuario.habitos)) {
+        return [];
+    }
+    return usuario.habitos;
+}
+
+function setHabitosUsuario(lista) {
+    let bd = JSON.parse(localStorage.getItem("usuariosTrackMe")) || {};
+    if (bd[usuarioActual]) {
+        bd[usuarioActual].habitos = lista;
+        localStorage.setItem("usuariosTrackMe", JSON.stringify(bd));
+    }
+}
+
 const form = document.getElementById("form-habitos");
 
 form.addEventListener("submit", function(event) {
@@ -32,7 +55,7 @@ function conversion(habitoFormData){
     const fechaCreacion = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
 
     const dateAfter30Days = new Date();
-    dateAfter30Days.setDate(today.getDate() + meta); 
+    dateAfter30Days.setDate(today.getDate() + Number(meta)); 
     const fechaTermino = `${String(dateAfter30Days.getDate()).padStart(2, '0')}/${String(dateAfter30Days.getMonth() + 1).padStart(2, '0')}/${dateAfter30Days.getFullYear()}`;
 
     return {
@@ -70,7 +93,7 @@ function validarHabito(habito){ //funcion para validar que cumpla con las cosas
 }
 
 function guardarLocalStorage(habito){
-    let habitoArray = JSON.parse(localStorage.getItem("habitos")) || []; //aggara del localstorage la info que tengo y las guarda en una variable
+    let habitoArray = getHabitosUsuario(); //aggara del localstorage la info que tengo y las guarda en una variable
     
     if (habitoArray.some(h => h.nombre.toLowerCase() === habito.nombre.toLowerCase())) {
         alert("Ese hábito ya existe.");
@@ -83,8 +106,7 @@ function guardarLocalStorage(habito){
     }
     else{
         habitoArray.push(habito);
-        let habitoArrayJSON = JSON.stringify(habitoArray);
-        localStorage.setItem("habitos", habitoArrayJSON);
+        setHabitosUsuario(habitoArray);
     }
 
     return true;
@@ -93,7 +115,7 @@ function guardarLocalStorage(habito){
 function insertarHabito(habito) {
     const contenedor = document.querySelector("#lista-habitos-creados .card-body");
 
-    let habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    let habitosGuardados = getHabitosUsuario();
     const numero = habitosGuardados.findIndex(h => h.id === habito.id) + 1;
 
     const div = document.createElement("div"); 
@@ -177,7 +199,7 @@ function guardarEdicionDesdeModal() {
 }
 
 function actualizarHabito(id, nuevosDatos) {
-    let habitos = JSON.parse(localStorage.getItem("habitos")) || [];
+    let habitos = getHabitosUsuario();
     const indice = habitos.findIndex(h => h.id === id);
 
     if (indice !== -1) { //validacion validar todo siempre aaa
@@ -186,22 +208,22 @@ function actualizarHabito(id, nuevosDatos) {
         habitos[indice].meta = nuevosDatos.meta;
         habitos[indice].dias = nuevosDatos.dias;
 
-        localStorage.setItem("habitos", JSON.stringify(habitos));
+        setHabitosUsuario(habitos);
         renderizarListaCompleta();
     }
 }
 
 function eliminarHabito(id) {
-    let habitos = JSON.parse(localStorage.getItem("habitos")) || [];
+    let habitos = getHabitosUsuario();
     let habitosActualizados = habitos.filter(h => h.id !== id);
-    localStorage.setItem("habitos", JSON.stringify(habitosActualizados));
+    setHabitosUsuario(habitosActualizados);
     renderizarListaCompleta();
 }
 
 function renderizarListaCompleta() { //para que los numeros no fallen al borrar
     const contenedor = document.querySelector("#lista-habitos-creados .card-body");
     contenedor.innerHTML = ""; 
-    let habitosArray = JSON.parse(localStorage.getItem("habitos")) || [];
+    let habitosArray = getHabitosUsuario();
     habitosArray.forEach(function(elemento) {
         insertarHabito(elemento);
     });
