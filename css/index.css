@@ -90,4 +90,12 @@
     border-color: #1E88E5;
 }
 
-
+@media (max-width: 768px) {
+    .hero-container{
+        width: 100%;
+    }
+    .hero-textos{
+        width: 100%;
+        height: 80%;
+    }
+}
