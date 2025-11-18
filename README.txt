@@ -22,11 +22,11 @@ cómo se veria (flujo/árbol)
     │     └── habito
     │         ├── id
     │         ├── nombre
-    │         ├── duracion
-    │         ├── descripcion
-    │         ├── dias
-    │         ├── fechaCreacion
-    │         └── fechaTermino
+    │         ├── duracion (minutos)
+    │         ├── meta (durante cuantos dias)
+    │         ├── dias (lunes, martes...)
+    │         ├── fechaCreacion (se saca el dia en que se crea el habito (api?))
+    │         └── fechaTermino (entre fechaCreacion y meta)
     │     
     └── estadisticas
         │
