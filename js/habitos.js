@@ -51,6 +51,7 @@ function conversion(habitoFormData){
     let meta = habitoFormData.get("meta-habito");
     let dias = habitoFormData.getAll("dias"); 
 
+    //para lo que son las fechas ** al momento de crear y al momento de terminar
     const today = new Date();
     const fechaCreacion = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
 
