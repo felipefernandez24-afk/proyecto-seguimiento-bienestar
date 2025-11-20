@@ -90,8 +90,45 @@ function validarHabito(habito){ //funcion para validar que cumpla con las cosas
         return false;
     }
 
+    //validaciones para que escriba solo letras y solo numeros en el nombre, la duracion y la meta respectivamente
+    if(!validacionSoloLetras(habito.nombre)){
+        alert("El nombre del hábito solo puede tener letras");
+        return false;
+    }
+
+    if(!validacionSoloNumeros(habito.duracion)){
+        alert("La duración solo puede tener numeros");
+        return false;
+    }  
+
+    if(!validacionSoloNumeros(habito.meta)){
+        alert("la meta solo puede tener numeros");
+        return false
+    }
+
     return true;
 }
+
+function validacionSoloLetras(texto){ //funcion para validar  que solo tenga letras
+    let permitidas = "abcdefhijklmnñopqrstuvwxyzáéíóú ";
+    texto = texto.toLowerCase();
+
+    for(let caracter of texto){ //si llegase a no tener alguna que retorne falso
+        if(!permitidas.includes(caracter))
+            return false;
+    }
+    return true;
+}
+
+function validacionSoloNumeros(texto){
+    let numeros = "0123456789";
+    for(let caracter of texto){
+        if(!numeros.includes(caracter))
+            return false;
+    }
+    return true;
+}
+
 
 function guardarLocalStorage(habito){
     let habitoArray = getHabitosUsuario(); //aggara del localstorage la info que tengo y las guarda en una variable
@@ -125,7 +162,8 @@ function insertarHabito(habito) {
     div.innerHTML = `
         <span class="fs-5 me-2">${numero}.</span>
         <input type="text" class="form-control" style="width: 40%;" value="${habito.nombre}" disabled>
-        <span class="text-muted mx-3">Duración: ${habito.duracion}</span>
+        <span class="text-muted mx-1">Duración: ${habito.duracion} min</span>
+        <span class="text-muted mx-1">Meta: ${habito.duracion} dias</span>
         <div class="btn-group mt-2 mt-md-0">
             <button class="btn btn-outline-primary btn-modificar" data-bs-toggle="modal" data-bs-target="#modalEditarHabito">Modificar</button>
             <button class="btn btn-outline-danger btn-eliminar">Eliminar</button>
@@ -181,6 +219,21 @@ function guardarEdicionDesdeModal() {
 
     if (!nombre.trim() || !duracion.trim() || !meta.trim() || diasSeleccionados.length === 0) { //validacion por si el chistoso edita dejando todo vacio
         alert("Por favor completa todos los campos y selecciona al menos un día.");
+        return;
+    }
+
+    if(!validacionSoloLetras(nombre)){
+        alert("El nombre del hábito solo puede tener letras");
+        return;
+    }
+    
+    if(!validacionSoloNumeros(duracion)){
+        alert("La duración solo puede tener numeros");
+        return;
+    }
+
+    if (!validacionSoloNumeros(meta)){
+        alert("La meta solo puede tener numeros");
         return;
     }
 
