@@ -236,12 +236,18 @@
                                 
                                 <div class="mb-3">
                                     <label for="duracion-diaria" class="form-label fs-5">Duración diaria:</label>
-                                    <input type="text" class="form-control" id="duracion-diaria" name="duracion-diaria" placeholder="Ejemplo: 15 minutos">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="duracion-diaria" name="duracion-diaria" placeholder="Ejemplo: 15" min="1">
+                                        <span class="input-group-text w-25">Minutos</span>
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="meta-habito" class="form-label fs-5">Meta total del hábito:</label>
-                                    <input type="text" class="form-control" id="meta-habito" name="meta-habito" placeholder="Ejemplo: 30 días">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="meta-habito" name="meta-habito" placeholder="Ejemplo: 30" min="1">
+                                        <span class="input-group-text w-25">Días</span>
+                                    </div>
                                 </div>
 
                                 <div class="mb-4">
@@ -339,12 +345,18 @@
                         
                         <div class="mb-3">
                             <label for="edit-duracion" class="form-label fs-5">Duración diaria:</label>
-                            <input type="text" class="form-control" id="edit-duracion">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="edit-duracion" min="1">
+                                <span class="input-group-text">minutos</span>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="edit-meta" class="form-label fs-5">Meta total del hábito:</label>
-                            <input type="text" class="form-control" id="edit-meta">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="edit-meta" min="1">
+                                <span class="input-group-text">días</span>
+                            </div>
                         </div>
 
                         <div class="mb-4">

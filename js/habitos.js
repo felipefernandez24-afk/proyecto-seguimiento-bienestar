@@ -54,9 +54,22 @@ function conversion(habitoFormData){
     const today = new Date();
     const fechaCreacion = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
 
-    const dateAfter30Days = new Date();
-    dateAfter30Days.setDate(today.getDate() + Number(meta)); 
-    const fechaTermino = `${String(dateAfter30Days.getDate()).padStart(2, '0')}/${String(dateAfter30Days.getMonth() + 1).padStart(2, '0')}/${dateAfter30Days.getFullYear()}`;
+    // 2. 
+    const mapDias = {"L": 1, "MA": 2, "MI": 3, "J": 4, "V": 5, "S": 6, "D": 0}; // Calcular la fecha de término (Meta basada solo en días activos)
+    const diasSeleccionados = dias.map(d => mapDias[d]); // Convertimos L a 1, MA a 2, etc
+    let calcularFecha = new Date(today);
+    let diasContados = 0;
+    let metaNum = Number(meta);
+
+    while (diasContados < metaNum) {
+        if (diasSeleccionados.includes(calcularFecha.getDay())) { // Verificamos si el día de la semana de fechaCalculada está en los días elegidos
+            diasContados++;
+        }
+        if (diasContados < metaNum) {
+            calcularFecha.setDate(calcularFecha.getDate() + 1); // Si aún no llegamos a meta, avanzamos al día siguiente
+        }
+    }
+    const fechaTermino = `${String(calcularFecha.getDate()).padStart(2, '0')}/${String(calcularFecha.getMonth() + 1).padStart(2, '0')}/${fechaCalculada.getFullYear()}`;
 
     return {
         "id" : id,
@@ -124,7 +137,7 @@ function insertarHabito(habito) {
     div.innerHTML = `
         <span class="fs-5 me-2">${numero}.</span>
         <input type="text" class="form-control" style="width: 40%;" value="${habito.nombre}" disabled>
-        <span class="text-muted mx-3">Duración: ${habito.duracion}</span>
+        <span class="text-muted mx-3">Duración: ${habito.duracion} minutos</span>
         <div class="btn-group mt-2 mt-md-0">
             <button class="btn btn-outline-primary btn-modificar" data-bs-toggle="modal" data-bs-target="#modalEditarHabito">Modificar</button>
             <button class="btn btn-outline-danger btn-eliminar">Eliminar</button>

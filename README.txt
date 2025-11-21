@@ -31,20 +31,16 @@ cómo se veria (flujo/árbol)
     │     
     └── estadisticas
         │
-        ├── registrosMensual[]
-        │      └── registro
-        │          ├── fecha
-        │          ├── habitoId
-        │          ├── habitoNombre
-        │          ├── habitoDuracion
-        │          └── completado (true/false)
-        │      
+        ├── registros[]
+        │   └── registro
+        │         ├── fecha ("2025-11-20")
+        │         ├── habitoId
+        │         ├── habitoNombre
+        │         ├── fechaCreacion
+        │         ├── fechaTermino
+        │         └── habitoDuracion 
         │
-        ├── porMes[]
-        │    ├── "2025-11" → [ registro, registro, ... ] (es el mismo registro de registrosMensual)
-        │    ├── "2025-10" → [ registro, registro, ... ]
-        │    └── ...
         │
         └── globales
-            ├── totalHabitosCompletados
-            └── mayorRacha
+                ├── totalHabitosCompletados
+                └── mayorRacha
