@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () =>
         if(!confirmar) return;
 
         localStorage.removeItem("usuarioActual");
-        alert("Sesión cerrada correctamente.");
         window.location.href = "login.html";
     });
 });
