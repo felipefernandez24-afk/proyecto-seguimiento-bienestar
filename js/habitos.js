@@ -69,7 +69,7 @@ function conversion(habitoFormData){
             calcularFecha.setDate(calcularFecha.getDate() + 1); // Si aún no llegamos a meta, avanzamos al día siguiente
         }
     }
-    const fechaTermino = `${String(calcularFecha.getDate()).padStart(2, '0')}/${String(calcularFecha.getMonth() + 1).padStart(2, '0')}/${fechaCalculada.getFullYear()}`;
+    const fechaTermino = `${String(calcularFecha.getDate()).padStart(2, '0')}/${String(calcularFecha.getMonth() + 1).padStart(2, '0')}/${calcularFecha.getFullYear()}`;
 
     return {
         "id" : id,
@@ -192,7 +192,7 @@ function guardarEdicionDesdeModal() {
     });
 
     if (!nombre.trim() || !duracion.trim() || !meta.trim() || diasSeleccionados.length === 0) { //validacion por si el chistoso edita dejando todo vacio
-        alert("Por favor completa todos los campos y selecciona al menos un día.");
+        alert("Por favor completa todos los campos y selecciona al menos un día.\nTambién asegurese de que los valores sean correctos (Meta y duración deben ser números)");
         return;
     }
 

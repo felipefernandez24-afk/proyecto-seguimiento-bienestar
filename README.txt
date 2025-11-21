@@ -23,22 +23,23 @@ cómo se veria (flujo/árbol)
     │     └── habito
     │         ├── id
     │         ├── nombre
-    │         ├── duracion (minutos)
+    │         ├── duracion "ej:(minutos)"
     │         ├── meta (durante cuantos dias)
-    │         ├── dias (lunes, martes...)
-    │         ├── fechaCreacion (se saca el dia en que se crea el habito (api?))
-    │         └── fechaTermino (entre fechaCreacion y meta)
+    │         ├── dias "ej:(lunes, martes...)"
+    │         ├── fechaCreacion (se saca el dia en que se crea el habito)
+    │         └── fechaTermino (entre fechaCreacion y meta, solo contando los dias que esten en "dias "ej:(lunes, martes...)"")
     │     
     └── estadisticas
         │
         ├── registros[]
         │   └── registro
-        │         ├── fecha ("2025-11-20")
+        │         ├── fecha "ej:("2025-11-20")"
         │         ├── habitoId
         │         ├── habitoNombre
         │         ├── fechaCreacion
         │         ├── fechaTermino
-        │         └── habitoDuracion 
+        │         ├── habitoDuracion 
+        │         └── completado 
         │
         │
         └── globales

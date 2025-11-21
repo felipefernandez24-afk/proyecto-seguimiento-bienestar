@@ -1,7 +1,7 @@
-const usuarioActual = localStorage.getItem("usuarioActual"); //verifica primero si hay un usuario logeado
+const usuarioActual = localStorage.getItem("usuarioActual");
 
 if (!usuarioActual) {
-    window.location.href = "login.html"; //si no hay, se devuelve a inicio
+    window.location.href = "login.html";
 }
 
 function getHabitosUsuario() {
@@ -88,7 +88,7 @@ function cargarHabitos(habito) {
     const hr = document.createElement("hr");
     contenedor.appendChild(hr);
 
-    const btnListo = div.querySelector(".btn-listo"); // botón Listo
+    const btnListo = div.querySelector(".btn-listo"); 
     if (!yaCompletado) {
         btnListo.addEventListener("click", function() {
             if(confirm(`¿Realmente ha completado este hábito?: \n"${habito.nombre} por ${habito.duracion} minutos"`)) {
@@ -129,7 +129,15 @@ function completarHabito(habito) {
 
 function actualizarBarraProgreso() {
     let habitos = getHabitosUsuario();
-    let totalHabitos = habitos.length;
+    const diasMap = ["L", "MA", "MI", "J", "V", "S", "D"];
+    
+    // Corrección para día lunes a domingo
+    const diaNativo = new Date().getDay(); 
+    const indiceCorregido = (diaNativo === 0) ? 6 : diaNativo - 1;
+    const diaHoy = diasMap[indiceCorregido];
+    
+    let habitosDeHoy = habitos.filter(h => h.dias.includes(diaHoy));
+    let totalHabitos = habitosDeHoy.length;
     
     if (totalHabitos === 0) {
         actualizarHTMLBarra(0, 0);
@@ -140,7 +148,7 @@ function actualizarBarraProgreso() {
     let registros = bd[usuarioActual]?.estadisticas?.registrosMensual || [];
     const hoy = getFechaHoy();
 
-    let completadosHoy = habitos.filter(h => 
+    let completadosHoy = habitosDeHoy.filter(h => 
         registros.some(r => r.fecha === hoy && r.habitoId === h.id)
     ).length;
 
@@ -161,15 +169,23 @@ function actualizarHTMLBarra(total, completados) {
     }
 }
 
-function renderizarListaCompleta() { //para que los numeros no fallen al borrar
+function renderizarListaCompleta() { 
     const contenedor = document.querySelector("#lista-habitos");
     contenedor.innerHTML = ""; 
     let habitosArray = getHabitosUsuario();
+    const diasMap = ["L", "MA", "MI", "J", "V", "S", "D"];
     
-    if (habitosArray.length === 0) {
-        contenedor.innerHTML = '<p class="text-center text-muted mt-3">No tienes hábitos activos para hoy.</p>';
+    // Corrección para día lunes a domingo
+    const diaNativo = new Date().getDay(); 
+    const indiceCorregido = (diaNativo === 0) ? 6 : diaNativo - 1;
+    const diaHoy = diasMap[indiceCorregido];
+    
+    let habitosDeHoy = habitosArray.filter(h => h.dias.includes(diaHoy));
+    
+    if (habitosDeHoy.length === 0) {
+        contenedor.innerHTML = '<p class="text-center text-muted mt-3">No tienes hábitos programados para hoy.</p>';
     } else {
-        habitosArray.forEach(function(elemento) {
+        habitosDeHoy.forEach(function(elemento) {
             cargarHabitos(elemento);    
         });
     }
