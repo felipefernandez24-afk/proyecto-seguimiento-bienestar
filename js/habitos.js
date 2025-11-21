@@ -52,6 +52,7 @@ function conversion(habitoFormData){ //convierte los datos crudos del form en ob
     let meta = habitoFormData.get("meta-habito");
     let dias = habitoFormData.getAll("dias"); //array de días seleccionados
 
+    //para lo que son las fechas ** al momento de crear y al momento de terminar
     const today = new Date();
     const fechaCreacion = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`; //fecha estandarizada dd/mm/yyyy
 
@@ -105,8 +106,45 @@ function validarHabito(habito){ //validaciones mínimas antes de guardar
         return false;
     }
 
-    return true; //todo correcto
+    //validaciones para que escriba solo letras y solo numeros en el nombre, la duracion y la meta respectivamente
+    if(!validacionSoloLetras(habito.nombre)){
+        alert("El nombre del hábito solo puede tener letras");
+        return false;
+    }
+
+    if(!validacionSoloNumeros(habito.duracion)){
+        alert("La duración solo puede tener numeros");
+        return false;
+    }  
+
+    if(!validacionSoloNumeros(habito.meta)){
+        alert("la meta solo puede tener numeros");
+        return false
+    }
+
+    return true;
 }
+
+function validacionSoloLetras(texto){ //funcion para validar  que solo tenga letras
+    let permitidas = "abcdefhijklmnñopqrstuvwxyzáéíóú ";
+    texto = texto.toLowerCase();
+
+    for(let caracter of texto){ //si llegase a no tener alguna que retorne falso
+        if(!permitidas.includes(caracter))
+            return false;
+    }
+    return true;
+}
+
+function validacionSoloNumeros(texto){
+    let numeros = "0123456789";
+    for(let caracter of texto){
+        if(!numeros.includes(caracter))
+            return false;
+    }
+    return true;
+}
+
 
 function guardarLocalStorage(habito){
     let habitoArray = getHabitosUsuario(); //cargo la lista actual

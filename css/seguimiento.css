@@ -97,9 +97,18 @@
 
 .flip-card-back { /*tarjeta de atras*/
     background-color: #00E3AE; 
+    max-width: 200px;
+    overflow: hidden;
     color: white;
     transform: rotateY(180deg);
 }
+
+.titulo-libro, .autor-libro{ /*esto es para limitar las lineas de la card porque se desbordaba horrible y se ve amarillo por ser DE WEBKIT*/
+    display: -webkit-box; /*se usa webkit pa que corte maslineas xd*/
+    -webkit-line-clamp: 3;  /* que deje 3 noma y las otras las esconde con "..." */
+    -webkit-box-orient: vertical; /*pa que el corte sea vertical */
+    overflow: hidden; /*ocultar texto que se sobrepase*/
+} 
 
 @media (max-width: 768px) {
     .hero-container{

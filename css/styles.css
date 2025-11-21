@@ -26,12 +26,13 @@
 .header .navbar li {
     display: inline-block;
     list-style: none;
-    padding: 0px 20px;
+    padding: 0px auto;
     text-decoration: none;
     margin: 10px 10px;
 }
 .header .navbar li:hover {
     border-bottom: 2px solid #333131;
+    cursor: pointer;
 }
 .header .navbar a {
     font-weight: 500;

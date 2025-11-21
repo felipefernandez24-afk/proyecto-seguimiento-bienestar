@@ -16,10 +16,7 @@ function getHabitosUsuario() {
 //variables futuras para lo que van a ser las cards de libros
 let categoria = document.querySelector("#selector");
 let listaDeLibros = [];
-
-//revisar estos
-let cardFrente = document.querySelector(".flip-card-front");
-let cardAtras = document.querySelector(".flip-card-back");
+let categoriaActual = "";
 
 if(categoria) {
     selector.addEventListener("change", mostrarLibros); //si llegsae a cambiar el valor del selector
