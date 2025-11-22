@@ -1,6 +1,3 @@
-//funciones 
-
-
 //Convierte una cadena dd/mm/yyyy a un objeto 
 //si la cadena está vacía devuelve la fecha actual.
 function parseFecha(fechaStr)

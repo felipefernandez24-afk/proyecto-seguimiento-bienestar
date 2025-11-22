@@ -116,6 +116,20 @@
     }
     .hero-textos{
         width: 100%;
-        height: 80%;
+        padding: 100px 20px;
+    }
+    .flip-card-container{
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+
+    .contenedor-libros .col {
+        padding-left: 10px;
+        padding-right: 0;
+    }
+
+    .flip-card-container {
+        margin-left: 0 !important; /* Deshace cualquier centrado anterior */
+        margin-right: auto !important; /* Mantiene la card a la izquierda de su columna */
     }
 }

@@ -60,7 +60,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Primera Ley: Hazlo Obvio</h5> <!-- PRIMERA LEY -->
                                     <p class="card-text">Define claramente cuándo y dónde realizarás la acción.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PrimeraLey">Deseo saber más</button>
+                                    <button type="button" class="btn btn-light fw-semibold" data-bs-toggle="modal" data-bs-target="#PrimeraLey">Deseo saber más</button>
 
                                     <!-- modal de bootstrap jeje-->
                                     <div class="modal fade" id="PrimeraLey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,7 +82,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-light fw-semibold" data-bs-dismiss="modal">Cerrar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Segunda Ley: Hazlo Atractivo</h5> <!-- SEGUNDA LEY -->
                                     <p class="card-text">Empareja el hábito con algo placentero, asociándolo con una recompensa.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SegundaLey">Deseo saber más</button>
+                                    <button type="button" class="btn btn-light fw-semibold" data-bs-toggle="modal" data-bs-target="#SegundaLey">Deseo saber más</button>
 
                                     <!-- modal de bootstrap jeje-->
                                     <div class="modal fade" id="SegundaLey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,7 +121,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-light fw-semibold" data-bs-dismiss="modal">Cerrar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Tercera Ley: Hazlo Fácil</h5> <!-- TERCERA LEY -->
                                     <p class="card-text">Reduce la fricción, disminuyendo los obstáculos, preparando tu espacio de trabajo.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TerceraLey">Deseo saber más</button>
+                                    <button type="button" class="btn btn-light fw-semibold" data-bs-toggle="modal" data-bs-target="#TerceraLey">Deseo saber más</button>
 
                                     <!-- modal de bootstrap jeje-->
                                     <div class="modal fade" id="TerceraLey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,7 +166,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-light fw-semibold" data-bs-dismiss="modal">Cerrar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,7 +186,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Cuarta Ley: Hazlo Satisfactorio</h5> <!-- CUARTA LEY -->
                                     <p class="card-text">Recompensa inmediatamente y monitorea tu progreso.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CuartaLey">Deseo saber más</button>
+                                    <button type="button" class="btn btn-light fw-semibold" data-bs-toggle="modal" data-bs-target="#CuartaLey">Deseo saber más</button>
 
                                     <!-- modal de bootstrap jeje-->
                                     <div class="modal fade" id="CuartaLey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,7 +205,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-light fw-semibold" data-bs-dismiss="modal">Cerrar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +272,7 @@
                                 </div>
 
                                 <div class="d-grid gap-2 mt-4">
-                                    <button type="submit" id="crear-habito" class="btn btn-primary btn-lg fw-bold">CREAR</button>
+                                    <button type="submit" id="crear-habito" class="btn btn-light btn-lg fw-bold">CREAR</button>
                                 </div>
                             </form>
                         </div>
@@ -295,19 +295,79 @@
             </div>
         </section>
 
+        <!-- todo lo que es el modal para modifical el habito -->
+        <div class="modal fade" id="modalEditarHabito" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg"> <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-4 fw-bold">Editar Hábito</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form id="form-editar-habito">
+                            <input type="hidden" id="edit-id"> <div class="mb-3">
+                                <label for="edit-nombre" class="form-label fs-5">Hábito que deseas realizar:</label>
+                                <input type="text" class="form-control" id="edit-nombre">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="edit-duracion" class="form-label fs-5">Duración diaria:</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="edit-duracion" min="1">
+                                    <span class="input-group-text">minutos</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="edit-meta" class="form-label fs-5">Meta total del hábito:</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="edit-meta" min="1">
+                                    <span class="input-group-text">días</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fs-5">Días a realizar:</label>
+                                <div class="d-flex justify-content-between gap-1">
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-l" value="L" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-l">L</label>
+
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-m" value="MA" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-m">MA</label>
+
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-mi" value="MI" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-mi">MI</label>
+
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-j" value="J" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-j">J</label>
+
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-v" value="V" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-v">V</label>
+
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-s" value="S" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-s">S</label>
+
+                                    <input type="checkbox" class="btn-check edit-dia" id="edit-dia-d" value="D" autocomplete="off">
+                                    <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-d">D</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary fw-bold" id="btn-guardar-edicion">GUARDAR CAMBIOS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <footer class="footer mt-5">
+    <footer class="footer mt-5"> <!--footer de la pagina-->
         <div class="container py-5">
             <div class="row align-items-center">
             <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
                 <h3 class="fw-bold mb-2">TrackMe</h3>
                 <p class="mb-3">Todo tu bienestar en una sola página.</p>
-                <div class="d-flex justify-content-center justify-content-md-start gap-3">
-                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
-                </div>
             </div>
 
             <div class="col-md-4 text-center">
@@ -329,70 +389,6 @@
             <p class="mb-1">© 2025 TrackMe· Todos los Derechos Reservados</p>
         </div>
     </footer>
-
-    <div class="modal fade" id="modalEditarHabito" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg"> <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-4 fw-bold">Editar Hábito</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <form id="form-editar-habito">
-                        <input type="hidden" id="edit-id"> <div class="mb-3">
-                            <label for="edit-nombre" class="form-label fs-5">Hábito que deseas realizar:</label>
-                            <input type="text" class="form-control" id="edit-nombre">
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="edit-duracion" class="form-label fs-5">Duración diaria:</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="edit-duracion" min="1">
-                                <span class="input-group-text">minutos</span>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="edit-meta" class="form-label fs-5">Meta total del hábito:</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="edit-meta" min="1">
-                                <span class="input-group-text">días</span>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label class="form-label fs-5">Días a realizar:</label>
-                            <div class="d-flex justify-content-between gap-1">
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-l" value="L" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-l">L</label>
-
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-m" value="MA" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-m">MA</label>
-
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-mi" value="MI" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-mi">MI</label>
-
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-j" value="J" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-j">J</label>
-
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-v" value="V" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-v">V</label>
-
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-s" value="S" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-s">S</label>
-
-                                <input type="checkbox" class="btn-check edit-dia" id="edit-dia-d" value="D" autocomplete="off">
-                                <label class="btn btn-outline-primary flex-grow-1" for="edit-dia-d">D</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary fw-bold" id="btn-guardar-edicion">GUARDAR CAMBIOS</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/scripts.js"></script>
