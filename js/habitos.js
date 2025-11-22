@@ -41,6 +41,7 @@ form.addEventListener("submit", function(event) {
 })
 
 document.addEventListener("DOMContentLoaded", function(event) { 
+    AOS.init();
     renderizarListaCompleta(); //render inicial para mantener numeración y sincronización
     document.getElementById("btn-guardar-edicion").addEventListener("click", guardarEdicionDesdeModal); //botón del modal de edición
 })
@@ -126,7 +127,7 @@ function validarHabito(habito){ //validaciones mínimas antes de guardar
 }
 
 function validacionSoloLetras(texto){ //funcion para validar  que solo tenga letras
-    let permitidas = "abcdefhijklmnñopqrstuvwxyzáéíóú ";
+    let permitidas = "abcdefhgijklmnñopqrstuvwxyzáéíóú ";
     texto = texto.toLowerCase();
 
     for(let caracter of texto){ //si llegase a no tener alguna que retorne falso
@@ -178,7 +179,7 @@ function insertarHabito(habito) { //inserta un hábito visual en la lista
 
     div.innerHTML = `
         <span class="fs-5 me-2">${numero}.</span>
-        <input type="text" class="form-control" style="width: 40%;" value="${habito.nombre}" disabled>
+        <input type="text" class="form-control" style="width: 150px; flex-grow: 1;" value="${habito.nombre}" disabled>
         <span class="text-muted mx-3">Duración: ${habito.duracion} minutos</span>
         <div class="btn-group mt-2 mt-md-0">
             <button class="btn btn-outline-primary btn-modificar" data-bs-toggle="modal" data-bs-target="#modalEditarHabito">Modificar</button>

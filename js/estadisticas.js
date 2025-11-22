@@ -1,6 +1,3 @@
-//funciones 
-
-
 //Convierte una cadena dd/mm/yyyy a un objeto 
 //si la cadena está vacía devuelve la fecha actual.
 function parseFecha(fechaStr)
@@ -138,6 +135,7 @@ function calcularMejorRacha(habitos, historial) {
     return racha;
 }
 document.addEventListener("DOMContentLoaded", function() {
+    AOS.init();
     const usuarioActual = localStorage.getItem("usuarioActual"); //verificar si existe un usuario actual
     if (!usuarioActual) {
         window.location.href = "login.html"; //si no, se redirige a login
