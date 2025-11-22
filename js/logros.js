@@ -56,7 +56,6 @@ function verificarDesbloqueoLogros() {
                 logro.titulo, 
                 logro.descripcion, 
                 logro.icono, 
-                "warning"
             );
             
             huboNuevosLogros = true; //como hay un logro nuevo, se activa la flag
@@ -89,7 +88,6 @@ function desbloquearLogroPorAccion(idLogro) { //idLogro se pasa especificamente 
                 logroData.titulo, 
                 logroData.descripcion, 
                 logroData.icono, 
-                "warning"
             );
         }
 
@@ -99,8 +97,8 @@ function desbloquearLogroPorAccion(idLogro) { //idLogro se pasa especificamente 
 
 //esta es la función pública que llamamos desde cualquier parte
 //no muestra el modal, solo lo forma en la fila
-function agregarAColaGlobal(subtitulo, titulo, mensaje, icono, tipo = 'primary') {
-    colaModales.push({ subtitulo, titulo, mensaje, icono, tipo }); //agregamos los datos al final del array
+function agregarAColaGlobal(subtitulo, titulo, mensaje, icono) {
+    colaModales.push({ subtitulo, titulo, mensaje, icono}); //agregamos los datos al final del array
     procesarColaModales(); //intentamos procesar la cola (si no hay nada mostrándose, arrancará)
 }
 
@@ -145,12 +143,8 @@ function desplegarModalLogro(data) {
     modalMensaje.textContent = data.mensaje;
 
     // estilos
-    modalHeader.className = `modal-header bg-${data.tipo} text-white justify-content-center`;
-    modalBtn.className = `btn btn-${data.tipo} btn-cerrar-modal`;
-    if(data.tipo === 'warning') {
-        modalHeader.classList.add('text-dark');
-        modalHeader.classList.remove('text-white');
-    }
+    modalHeader.className = `modal-header bg-success text-white justify-content-center`;
+    modalBtn.className = `btn btn-info btn-cerrar-modal`;
 
     // mostrar modal
     const bootstrapModal = new bootstrap.Modal(modalEl);
