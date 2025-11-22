@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  AOS.init();
   const fraseContainer = document.querySelector(".frase-motivacional");
 
   // Llamar a la API para obtener las frases

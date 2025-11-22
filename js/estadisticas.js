@@ -135,6 +135,7 @@ function calcularMejorRacha(habitos, historial) {
     return racha;
 }
 document.addEventListener("DOMContentLoaded", function() {
+    AOS.init();
     const usuarioActual = localStorage.getItem("usuarioActual"); //verificar si existe un usuario actual
     if (!usuarioActual) {
         window.location.href = "login.html"; //si no, se redirige a login

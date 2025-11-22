@@ -41,6 +41,7 @@ form.addEventListener("submit", function(event) {
 })
 
 document.addEventListener("DOMContentLoaded", function(event) { 
+    AOS.init();
     renderizarListaCompleta(); //render inicial para mantener numeración y sincronización
     document.getElementById("btn-guardar-edicion").addEventListener("click", guardarEdicionDesdeModal); //botón del modal de edición
 })
