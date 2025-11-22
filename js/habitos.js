@@ -164,7 +164,10 @@ function guardarLocalStorage(habito){
         habitoArray.push(habito); //agrego
         setHabitosUsuario(habitoArray); //persisto
     }
-
+    // logros de estadisticas (en este caso cantidad de habitos activos)
+    if (typeof verificarDesbloqueoLogros === 'function') {
+        verificarDesbloqueoLogros(); //revisa logros basados en estadisticas
+    }
     return true;
 }
 

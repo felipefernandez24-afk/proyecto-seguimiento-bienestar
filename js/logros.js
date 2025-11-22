@@ -16,7 +16,7 @@ const listaLogros = [
 
     //cuantos habitos hay a la vez
     { id: "activos_3", titulo: "Organizado", descripcion: "Ten 3 hábitos activos al mismo tiempo.", icono: "📂", condicion: (stats, habitos) => habitos.length >= 3 },
-    { id: "activos_5", titulo: '"Puedo hacer 5 cosas a la vez 🤓"', descripcion: "Ten 5 hábitos activos al mismo tiempo.", icono: "🐙", condicion: (stats,habitos) => habitos.length >= 5 },
+    { id: "activos_5", titulo: '"Puedo hacer 5 cosas a la vez 🤓"', descripcion: "Ten 5 hábitos activos al mismo tiempo.", icono: "🤓", condicion: (stats,habitos) => habitos.length >= 5 },
     { id: "activos_10", titulo: "Persona ocupada", descripcion: "Ten 10 hábitos activos al mismo tiempo.", icono: "📅", condicion: (stats, habitos) => habitos.length >= 10 },
 
     // acciones especificas
