@@ -155,6 +155,7 @@ function guardarLocalStorage(habito){
     }
 
     if (habitoArray.length >= 10) { //límite de hábitos por usuario
+        if (typeof desbloquearLogroPorAccion === 'function') desbloquearLogroPorAccion("ambicioso"); //logro 
         alert("Sólo puedes tener 10 hábitos al mismo tiempo");
         return false;
     }
@@ -244,7 +245,7 @@ function guardarEdicionDesdeModal() { //procesa cambios desde el modal
     };
 
     actualizarHabito(id, nuevosDatos);
-
+    if (typeof desbloquearLogroPorAccion === 'function') desbloquearLogroPorAccion("modificar"); //logro
     // Cerrar modal
     const modalElement = document.getElementById('modalEditarHabito');
     const modalInstance = bootstrap.Modal.getInstance(modalElement); 
@@ -289,6 +290,7 @@ function eliminarHabito(id) { //borra un hábito del usuario y actualiza estadí
         }
 
         localStorage.setItem("usuariosTrackMe", JSON.stringify(bd)); //persisto cambios
+        if (typeof desbloquearLogroPorAccion === 'function') desbloquearLogroPorAccion("eliminar"); //logro
         renderizarListaCompleta(); //actualiza vista
     }
 }

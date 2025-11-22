@@ -144,11 +144,31 @@ function completarHabito(habito) {
         // Borrar de la lista de hábitos activos
         usuario.habitos = usuario.habitos.filter(h => h.id !== habito.id);
         alert(`¡Felicidades! Has completado el ciclo de tu hábito "${habito.nombre}".`); //dar un mensaje para notificar la buena noticia 
-    
     }
 
     localStorage.setItem("usuariosTrackMe", JSON.stringify(bd)); //guarda cambios
     renderizarListaCompleta(); //refresca ui
+
+    //logros
+    // logro dia perfecto
+    const diasMap = ["D", "L", "MA", "MI", "J", "V", "S"]; //mapa de codigos de dias
+    const diaHoyCode = diasMap[new Date().getDay()]; //obtiene codigo del dia actual
+    const habitosHoy = usuario.habitos.filter(h => h.dias.includes(diaHoyCode)); // filtro hábitos activos que tocan hoy
+    
+    // cuento cuantos de esos habitos ya tienen registro hoy
+    const completadosHoy = usuario.estadisticas.registrosMensual.filter(r => r.fecha === fechaHoy && habitosHoy.some(h => h.id === r.habitoId)).length;
+
+    // si hay habitos hoy y todos estan completos
+    if (habitosHoy.length > 0 && completadosHoy === habitosHoy.length) {
+         if (typeof desbloquearLogroPorAccion === 'function') {
+             desbloquearLogroPorAccion("dia_perfecto"); //gatilla logro manual dia perfecto
+         }
+    }
+
+    // logros de estadisticas (racha o habitos cumplidos)
+    if (typeof verificarDesbloqueoLogros === 'function') {
+        verificarDesbloqueoLogros(); //revisa logros basados en estadisticas
+    }
 }
 
 function actualizarBarraProgreso() {
