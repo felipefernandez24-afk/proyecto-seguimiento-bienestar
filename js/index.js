@@ -2,16 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   AOS.init();
   const fraseContainer = document.querySelector(".frase-motivacional");
 
-  // Llamar a la API para obtener las frases
   async function cargarFrase() {
     try {
       const response = await fetch('https://www.positive-api.online/phrases/esp');
-      const data = await response.json(); // Respuesta de la API
+      const data = await response.json(); //respuesta api
 
-      // Selecciona una frase aleatoria de la respuesta
       const fraseAleatoria = data[Math.floor(Math.random() * data.length)];
 
-      // Inyecta la frase aleatoria en el contenedor
+      //colocando la frase
       fraseContainer.innerHTML = `
           <h3 class="fw-bold">"${fraseAleatoria.text}"</h3>
       `;
@@ -22,5 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
   }
-  cargarFrase(); // Llamamos a la función
+  cargarFrase();
 });

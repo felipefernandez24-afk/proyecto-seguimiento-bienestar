@@ -16,7 +16,7 @@ const listaLogros = [
 
     //cuantos habitos hay a la vez
     { id: "activos_3", titulo: "Organizado", descripcion: "Ten 3 hábitos activos al mismo tiempo.", icono: "📂", condicion: (stats, habitos) => habitos.length >= 3 },
-    { id: "activos_5", titulo: '"Puedo hacer 5 cosas a la vez 🤓"', descripcion: "Ten 5 hábitos activos al mismo tiempo.", icono: "🐙", condicion: (stats,habitos) => habitos.length >= 5 },
+    { id: "activos_5", titulo: '"Puedo hacer 5 cosas a la vez 🤓"', descripcion: "Ten 5 hábitos activos al mismo tiempo.", icono: "🤓", condicion: (stats,habitos) => habitos.length >= 5 },
     { id: "activos_10", titulo: "Persona ocupada", descripcion: "Ten 10 hábitos activos al mismo tiempo.", icono: "📅", condicion: (stats, habitos) => habitos.length >= 10 },
 
     // acciones especificas
@@ -56,7 +56,6 @@ function verificarDesbloqueoLogros() {
                 logro.titulo, 
                 logro.descripcion, 
                 logro.icono, 
-                "warning"
             );
             
             huboNuevosLogros = true; //como hay un logro nuevo, se activa la flag
@@ -89,7 +88,6 @@ function desbloquearLogroPorAccion(idLogro) { //idLogro se pasa especificamente 
                 logroData.titulo, 
                 logroData.descripcion, 
                 logroData.icono, 
-                "warning"
             );
         }
 
@@ -99,8 +97,8 @@ function desbloquearLogroPorAccion(idLogro) { //idLogro se pasa especificamente 
 
 //esta es la función pública que llamamos desde cualquier parte
 //no muestra el modal, solo lo forma en la fila
-function agregarAColaGlobal(subtitulo, titulo, mensaje, icono, tipo = 'primary') {
-    colaModales.push({ subtitulo, titulo, mensaje, icono, tipo }); //agregamos los datos al final del array
+function agregarAColaGlobal(subtitulo, titulo, mensaje, icono) {
+    colaModales.push({ subtitulo, titulo, mensaje, icono}); //agregamos los datos al final del array
     procesarColaModales(); //intentamos procesar la cola (si no hay nada mostrándose, arrancará)
 }
 
@@ -145,12 +143,8 @@ function desplegarModalLogro(data) {
     modalMensaje.textContent = data.mensaje;
 
     // estilos
-    modalHeader.className = `modal-header bg-${data.tipo} text-white justify-content-center`;
-    modalBtn.className = `btn btn-${data.tipo} btn-cerrar-modal`;
-    if(data.tipo === 'warning') {
-        modalHeader.classList.add('text-dark');
-        modalHeader.classList.remove('text-white');
-    }
+    modalHeader.className = `modal-header bg-success text-white justify-content-center`;
+    modalBtn.className = `btn btn-info btn-cerrar-modal`;
 
     // mostrar modal
     const bootstrapModal = new bootstrap.Modal(modalEl);

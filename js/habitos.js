@@ -1,7 +1,7 @@
 const usuarioActual = localStorage.getItem("usuarioActual"); //obtiene el usuario logeado actualmente (clave para segmentar la BD por usuario)
 
 if (!usuarioActual) { //si no hay usuario, bloqueo de acceso directo vía URL
-    window.location.href = "login.html"; //redirijo a login
+    window.location.href = "login.html";
 }
 
 function getHabitosUsuario() { //obtiene la lista de hábitos del usuario activo desde localStorage
@@ -24,11 +24,11 @@ function setHabitosUsuario(lista) { //actualiza la lista de hábitos del usuario
 const form = document.getElementById("form-habitos"); //formulario de creación
 
 form.addEventListener("submit", function(event) {
-    event.preventDefault(); //evita recarga y mantiene el estado actual de la página
-    let habitoFormData = new FormData(form); //agarra todos los campos del formulario
+    event.preventDefault(); 
+    let habitoFormData = new FormData(form); //habito va a ser un objeto formdata que viene del formulario de habitos
     let habito = conversion(habitoFormData); //construyo un objeto habito con formato estándar
 
-    if(!validarHabito(habito)){ //validación rápida antes de escribir
+    if(!validarHabito(habito)){ 
         return;
     }
 
@@ -36,24 +36,25 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    insertarHabito(habito); //inserta visualmente el hábito recién creado
-    document.getElementById("vista-previa-titulo").textContent = habito.nombre; //actualiza vista previa
+    insertarHabito(habito);
+    document.getElementById("vista-previa-titulo").textContent = habito.nombre; //modificar la parte de la vista previa al crear el habito
 })
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {//para que se muestren los datos ya mostrados en el localstorage
     AOS.init();
     renderizarListaCompleta(); //render inicial para mantener numeración y sincronización
     document.getElementById("btn-guardar-edicion").addEventListener("click", guardarEdicionDesdeModal); //botón del modal de edición
 })
 
-function conversion(habitoFormData){ //convierte los datos crudos del form en objeto habito con sus fechas calculadas
+//le psasmos form data y obtiene los datos que tenga
+function conversion(habitoFormData){ 
     let id = crypto.randomUUID(); //id único, clave para edición/eliminación
     let nombre = habitoFormData.get("nombre-habito");
     let duracion = habitoFormData.get("duracion-diaria");
     let meta = habitoFormData.get("meta-habito");
     let dias = habitoFormData.getAll("dias"); //array de días seleccionados
 
-    //para lo que son las fechas ** al momento de crear y al momento de terminar
+    //----- para lo que son las fechas ** al momento de crear y al momento de terminar -------
     const today = new Date();
     const fechaCreacion = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`; //fecha estandarizada dd/mm/yyyy
 
@@ -83,10 +84,10 @@ function conversion(habitoFormData){ //convierte los datos crudos del form en ob
         "dias" : dias,
         "fechaCreacion" : fechaCreacion,
         "fechaTermino" : fechaTermino
-    };
+    }; //me devuelve un objeto que tenga sus respectivas clave valor
 }
 
-function validarHabito(habito){ //validaciones mínimas antes de guardar
+function validarHabito(habito){ //funcion para validar que cumpla con las cosas
     if (!habito.nombre.trim()) {
         alert("El nombre del hábito no puede estar vacío");
         return false;
@@ -102,7 +103,7 @@ function validarHabito(habito){ //validaciones mínimas antes de guardar
         return false;
     }
 
-    if (habito.dias.length === 0) { //impide hábitos sin días activos
+    if (habito.dias.length === 0) {
         alert("Debes seleccionar al menos un día para el hábito");
         return false;
     }
@@ -137,7 +138,7 @@ function validacionSoloLetras(texto){ //funcion para validar  que solo tenga let
     return true;
 }
 
-function validacionSoloNumeros(texto){
+function validacionSoloNumeros(texto){ //lo mismo que letras pero para num
     let numeros = "0123456789";
     for(let caracter of texto){
         if(!numeros.includes(caracter))
@@ -155,7 +156,7 @@ function guardarLocalStorage(habito){
         return false;
     }
 
-    if (habitoArray.length >= 10) { //límite de hábitos por usuario
+    if (habitoArray.length >= 10) { //que se puedan maximo 10
         if (typeof desbloquearLogroPorAccion === 'function') desbloquearLogroPorAccion("ambicioso"); //logro 
         alert("Sólo puedes tener 10 hábitos al mismo tiempo");
         return false;
@@ -164,7 +165,10 @@ function guardarLocalStorage(habito){
         habitoArray.push(habito); //agrego
         setHabitosUsuario(habitoArray); //persisto
     }
-
+    //logros de estadisticas (en este caso cantidad de habitos activos)
+    if (typeof verificarDesbloqueoLogros === 'function') {
+        verificarDesbloqueoLogros(); //revisa logros basados en estadisticas
+    }
     return true;
 }
 
@@ -174,7 +178,7 @@ function insertarHabito(habito) { //inserta un hábito visual en la lista
     let habitosGuardados = getHabitosUsuario();
     const numero = habitosGuardados.findIndex(h => h.id === habito.id) + 1; //numeración dinámica
 
-    const div = document.createElement("div"); //estructura del item
+    const div = document.createElement("div");
     div.classList.add("d-flex", "flex-wrap", "justify-content-between", "align-items-center", "mb-3");
 
     div.innerHTML = `
@@ -188,10 +192,10 @@ function insertarHabito(habito) { //inserta un hábito visual en la lista
     `;
     contenedor.appendChild(div);
 
-    const hr = document.createElement("hr"); //separador visual
+    const hr = document.createElement("hr");
     contenedor.appendChild(hr);
 
-    // botón Eliminar
+    //botón eliminar
     const btnEliminar = div.querySelector(".btn-eliminar");
     btnEliminar.addEventListener("click", function() {
         if(confirm(`¿Estás seguro de eliminar "${habito.nombre}"?`)) {
@@ -199,7 +203,7 @@ function insertarHabito(habito) { //inserta un hábito visual en la lista
         }
     });
 
-    // Botón Modificar
+    //botón modificar
     const btnModificar = div.querySelector(".btn-modificar");
     btnModificar.addEventListener("click", function() {
         cargarDatosAlModal(habito); //abre modal con datos cargados

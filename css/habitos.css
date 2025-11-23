@@ -38,9 +38,14 @@
 }
 /* FIN DE LA SECCION DEL HERO INICIO*/
 
-/* INICIO CARDS RECOMENDABLES */
+/* consejos habitos atomicos*/
+.spanClase{
+    text-decoration: underline;
+    color: #00a783;
+}
 
-.primera_card{
+/* INICIO CARDS RECOMENDABLES */
+.primera_card, .segunda_card, .tercera_card, .cuarta_card{
     background-position: center;
 }
 
