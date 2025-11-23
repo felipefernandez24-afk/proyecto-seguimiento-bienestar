@@ -24,7 +24,6 @@ if(categoria) {
 
 function mostrarLibros(){
     let categoriaIngresada = categoria.value;
-    if (categoriaIngresada === "Seleccionar Categoría") return; //por si elige la default
 
     if (categoriaIngresada !== categoriaActual) { //por si cambia de categoria como pa que empeice de cero
         listaDeLibros = [];
@@ -32,7 +31,7 @@ function mostrarLibros(){
     }
 
     if(listaDeLibros.length === 0){
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${categoriaIngresada}`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${categoriaIngresada}&maxResults=40`)
         .then(response =>{
             if(!response.ok){
                 throw new Error("ERROR. No se pudo cargar los datos correctamente.");
@@ -57,22 +56,29 @@ function mostrarLibros(){
 function cargarDatos(){
     const cardsFrente = document.querySelectorAll(".flip-card-front img");
     const cardsAtras = document.querySelectorAll(".flip-card-back");
+    let enteroRandom = Math.floor(Math.random() * 10)+1; //entero para que se genere random un libro dsp
 
-    cardsFrente.forEach((img, index) => {
-        if(!listaDeLibros[index]) return; // si faltan libros, no falla
+    cardsFrente.forEach((img, i) => { //vamos iterando sobre las cards, donde i es su indice
+        const indiceLibro = enteroRandom + i; //elegimos un indice libro 
 
-        let info = listaDeLibros[index].volumeInfo;
+        if(!listaDeLibros[indiceLibro]) { // si faltan libros, no falla
+            return;
+        }
+
+        let info = listaDeLibros[indiceLibro].volumeInfo;
+        let cardActual = cardsAtras[i]; //la card como tal segun la psicion
 
         if(info.imageLinks && info.imageLinks.thumbnail) { //la portada a veces no hay
-            img.src = info.imageLinks.smallThumbnail;
+            img.src = info.imageLinks.thumbnail;
         } else {
-            img.src = "https://via.placeholder.com/150";
+            img.src = "../img/no_imagen.jpg";
         }
         
-        let titulo = cardsAtras[index].querySelector(".titulo-libro");
-        let link   = cardsAtras[index].querySelector("a");
-        let autor  = cardsAtras[index].querySelector(".autor-libro");
+        let titulo = cardActual.querySelector(".titulo-libro");
+        let link   = cardActual.querySelector("a");
+        let autor  = cardActual.querySelector(".autor-libro");
 
+        let tituloAutores;
         if(info.title){
             titulo.textContent =info.title;
         } else{
@@ -207,9 +213,9 @@ function completarHabito(habito) {
 
     // si hay habitos hoy y todos estan completos
     if (habitosHoy.length > 0 && completadosHoy === habitosHoy.length) {
-         if (typeof desbloquearLogroPorAccion === 'function') {
+        if (typeof desbloquearLogroPorAccion === 'function') {
              desbloquearLogroPorAccion("dia_perfecto"); //gatilla logro manual dia perfecto
-         }
+        }
     }
 
     // logros de estadisticas (racha o habitos cumplidos)

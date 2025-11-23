@@ -75,22 +75,22 @@
                             <div class="container-formulario p-4 shadow-sm">
                                 <form class="row g-3 needs-validation" novalidate> 
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="*Nombre" required>
+                                        <input type="text" class="form-control" placeholder="*Nombre" required name="nombre">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="*Apellido" required>
+                                        <input type="text" class="form-control" placeholder="*Apellido" required name="apellido">
                                     </div>
                                     <div class="col-12">
-                                        <input type="email" class="form-control" placeholder="*Email" required>
+                                        <input type="email" class="form-control" placeholder="*Email" required name="email">
                                     </div>
                                     <div class="col-2">
-                                        <input type="text" class="form-control" placeholder="+56 9">
+                                        <input type="text" class="form-control" placeholder="+56 9" name="prefijo">
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="tel" class="form-control" placeholder="9999 9999">
+                                        <input type="tel" class="form-control" placeholder="9999 9999" name="telefono">
                                     </div>
                                         <div class="col-md-4">
-                                            <select class="form-select" required>
+                                            <select class="form-select" required name="select">
                                                 <option value="">Motivo</option>
                                                 <option value="problemas">Tuve problemas con la página</option>
                                                 <option value="opinion">Deseo enviar mi opinión de la página</option>
@@ -99,7 +99,7 @@
                                         <div class="invalid-feedback">Por favor selecciona un motivo.</div>
                                     </div>
                                     <div class="col-12">
-                                        <textarea class="form-control" rows="3" placeholder="Mensaje..."></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Mensaje" name="Mensaje"></textarea>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-check">
