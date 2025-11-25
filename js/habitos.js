@@ -65,7 +65,8 @@ function conversion(habitoFormData){
     let diasContados = 0;
     let metaNum = Number(meta);
 
-    while (diasContados < metaNum) { //avanzo solo por días elegidos hasta llegar a la meta
+    //verificacion para evitar bucle infinito si no hay días
+    while (diasContados < metaNum && diasSeleccionados.length > 0) { //avanzo solo por días elegidos hasta llegar a la meta
         if (diasSeleccionados.includes(calcularFecha.getDay())) {
             diasContados++;
         }
